@@ -1,0 +1,12 @@
+{
+  "name": "jvs-academy",
+  "version": "1.0.0",
+  "description": "Static educational website for JVS Academy",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
