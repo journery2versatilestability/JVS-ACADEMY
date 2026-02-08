@@ -33,7 +33,7 @@
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-primary-blue text-center mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-accent-blue;
+    @apply text-3xl md:text-4xl font-extrabold text-primary-blue text-center mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-accent-blue;
   }
 
   .card-hover {
