@@ -117,11 +117,86 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+
     window.closeDirectorModal = () => {
         const modal = document.getElementById('director-modal');
         if (modal) {
             modal.classList.add('hidden');
             document.body.style.overflow = ''; // Restore scrolling
+        }
+    };
+
+    // Service Benefits Data
+    const serviceBenefits = {
+        datascience: {
+            name: "Data Science",
+            benefit: "Master the art of extracting insights from data to drive strategic business decisions and innovation."
+        },
+        dataanalytics: {
+            name: "Data Analytics",
+            benefit: "Learn to transform raw data into meaningful patterns and actionable business intelligence."
+        },
+        cybersecurity: {
+            name: "Cyber Security",
+            benefit: "Protect digital assets and infrastructures by mastering advanced security protocols and threat detection."
+        },
+        digitalmarketing: {
+            name: "Digital Marketing",
+            benefit: "Dominate the digital landscape with expertise in SEO, social media strategies, and online branding."
+        },
+        ai: {
+            name: "Artificial Intelligence",
+            benefit: "Build the future by creating intelligent systems that can learn, reason, and solve complex problems."
+        },
+        ml: {
+            name: "Machine Learning",
+            benefit: "Develop algorithms that allow computers to learn from data and improve performance automatically."
+        },
+        python: {
+            name: "Python Programming",
+            benefit: "Gain a versatile edge in software development with the world's most popular and powerful programming language."
+        },
+        fullstack: {
+            name: "Full Stack Web Dev",
+            benefit: "Become a complete developer by mastering both front-end aesthetics and back-end logic."
+        },
+        cloud: {
+            name: "Cloud (AWS & Azure)",
+            benefit: "Lead digital transformations by managing scalable and secure infrastructures on top cloud platforms."
+        },
+        networking: {
+            name: "Networking (CCNA)",
+            benefit: "Build the backbone of modern communication by mastering complex network architectures and security."
+        },
+        powerbi: {
+            name: "Power BI",
+            benefit: "Visualize success by creating interactive, data-driven dashboards that tell compelling business stories."
+        },
+        msoffice: {
+            name: "MS Office Specialist",
+            benefit: "Maximize workplace productivity with expert-level proficiency in the world's essential business suite."
+        }
+    };
+
+    // Service Modal Functions
+    window.openServiceModal = (id) => {
+        const modal = document.getElementById('service-modal');
+        const data = serviceBenefits[id];
+
+        if (modal && data) {
+            document.getElementById('modal-service-name').textContent = data.name;
+            document.getElementById('modal-service-benefit').textContent = data.benefit;
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+    };
+
+    window.closeServiceModal = () => {
+        const modal = document.getElementById('service-modal');
+        if (modal) {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
         }
     };
 });
