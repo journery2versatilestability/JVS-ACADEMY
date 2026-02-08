@@ -77,4 +77,23 @@ document.addEventListener('DOMContentLoaded', () => {
             window.open(`https://wa.me/${phone}?text=${fullMessage}`, '_blank');
         });
     }
+    // Home Contact Form WhatsApp Integration
+    const homeContactForm = document.getElementById('home-contact-form');
+    if (homeContactForm) {
+        homeContactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('home-name').value;
+            const userPhone = document.getElementById('home-phone').value;
+            const interest = document.getElementById('home-interest').value;
+
+            const phone = "919160030342";
+            const fullMessage = `*New Home Enquiry - JVS Academy*%0A%0A` +
+                `*Name:* ${name}%0A` +
+                `*Phone:* ${userPhone}%0A` +
+                `*Interest:* ${interest}`;
+
+            window.open(`https://wa.me/${phone}?text=${fullMessage}`, '_blank');
+        });
+    }
 });
