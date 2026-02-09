@@ -130,51 +130,63 @@ document.addEventListener('DOMContentLoaded', () => {
     const serviceBenefits = {
         datascience: {
             name: "Data Science",
-            benefit: "Master the art of extracting insights from data to drive strategic business decisions and innovation."
+            benefit: "Master the art of extracting insights from data to drive strategic business decisions and innovation.",
+            price: "₹24,999/-"
         },
         dataanalytics: {
             name: "Data Analytics",
-            benefit: "Learn to transform raw data into meaningful patterns and actionable business intelligence."
+            benefit: "Learn to transform raw data into meaningful patterns and actionable business intelligence.",
+            price: "₹19,999/-"
         },
         cybersecurity: {
             name: "Cyber Security",
-            benefit: "Protect digital assets and infrastructures by mastering advanced security protocols and threat detection."
+            benefit: "Protect digital assets and infrastructures by mastering advanced security protocols and threat detection.",
+            price: "₹21,999/-"
         },
         digitalmarketing: {
             name: "Digital Marketing",
-            benefit: "Dominate the digital landscape with expertise in SEO, social media strategies, and online branding."
+            benefit: "Dominate the digital landscape with expertise in SEO, social media strategies, and online branding.",
+            price: "₹14,999/-"
         },
         ai: {
             name: "Artificial Intelligence",
-            benefit: "Build the future by creating intelligent systems that can learn, reason, and solve complex problems."
+            benefit: "Build the future by creating intelligent systems that can learn, reason, and solve complex problems.",
+            price: "₹29,999/-"
         },
         ml: {
             name: "Machine Learning",
-            benefit: "Develop algorithms that allow computers to learn from data and improve performance automatically."
+            benefit: "Develop algorithms that allow computers to learn from data and improve performance automatically.",
+            price: "₹27,999/-"
         },
         python: {
             name: "Python Programming",
-            benefit: "Gain a versatile edge in software development with the world's most popular and powerful programming language."
+            benefit: "Gain a versatile edge in software development with the world's most popular and powerful programming language.",
+            price: "₹11,999/-"
         },
         fullstack: {
             name: "Full Stack Web Dev",
-            benefit: "Become a complete developer by mastering both front-end aesthetics and back-end logic."
+            benefit: "Become a complete developer by mastering both front-end aesthetics and back-end logic.",
+            price: "₹34,999/-"
         },
         cloud: {
             name: "Cloud (AWS & Azure)",
-            benefit: "Lead digital transformations by managing scalable and secure infrastructures on top cloud platforms."
+            benefit: "Lead digital transformations by managing scalable and secure infrastructures on top cloud platforms.",
+            price: "₹24,999/-"
         },
         networking: {
             name: "Networking (CCNA)",
-            benefit: "Build the backbone of modern communication by mastering complex network architectures and security."
+            benefit: "Build the backbone of modern communication by mastering complex network architectures and security.",
+            price: "₹17,999/-"
         },
         powerbi: {
             name: "Power BI",
-            benefit: "Visualize success by creating interactive, data-driven dashboards that tell compelling business stories."
+            benefit: "Visualize success by creating interactive, data-driven dashboards that tell compelling business stories.",
+            price: "₹9,999/-"
         },
         msoffice: {
             name: "MS Office Specialist",
-            benefit: "Maximize workplace productivity with expert-level proficiency in the world's essential business suite."
+            benefit: "Maximize workplace productivity with expert-level proficiency in the world's essential business suite.",
+            price: "₹4,999/-"
         }
     };
 
@@ -186,6 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modal && data) {
             document.getElementById('modal-service-name').textContent = data.name;
             document.getElementById('modal-service-benefit').textContent = data.benefit;
+            document.getElementById('modal-service-price').textContent = data.price;
 
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
