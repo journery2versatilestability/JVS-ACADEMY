@@ -195,17 +195,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h4 class="font-bold text-primary border-b pb-2">${course.name}</h4>
                     <div class="space-y-2">
                         <label class="text-[10px] uppercase font-black text-slate-400">Price (INR)</label>
-                        <input type="text" value="${course.price}" onchange="updateCoursePrice('${key}', this.value)" 
-                            class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-primary text-sm font-bold">
+                        <input type="text" value="${course.price}" data-key="${key}" class="course-price-input w-full px-4 py-3 bg-white border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-primary text-sm font-bold">
                     </div>
                 </div>
             `;
         }).join('');
     };
 
-    window.updateCoursePrice = (key, newPrice) => {
-        appData.serviceBenefits[key].price = newPrice;
+    window.saveAllPrices = () => {
+        document.querySelectorAll('.course-price-input').forEach(input => {
+            const key = input.dataset.key;
+            const value = input.value;
+            appData.serviceBenefits[key].price = value;
+        });
         syncData();
+        alert('All course prices updated successfully!');
     };
 
     // LOGOUT
