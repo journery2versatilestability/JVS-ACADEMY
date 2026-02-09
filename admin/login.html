@@ -33,7 +33,7 @@
         <form id="login-form" class="space-y-6">
             <div class="space-y-2">
                 <label class="text-sm font-bold text-slate-500 uppercase tracking-widest">Email Address</label>
-                <input type="email" id="email" required placeholder="admin@jvs"
+                <input type="email" id="email" required placeholder="jvs@gmail.com"
                     class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary outline-none transition-all">
             </div>
             <div class="space-y-2">
@@ -56,7 +56,7 @@
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
-            if (email === 'admin@jvs' && password === 'admin123') {
+            if (email === 'jvs@gmail.com' && password === 'jvs@123') {
                 sessionStorage.setItem('jvs_admin_auth', 'true');
                 window.location.href = 'dashboard.html';
             } else {
