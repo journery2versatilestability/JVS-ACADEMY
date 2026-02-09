@@ -24,28 +24,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 name: "Ms. Jyoshna Yellapu",
                 role: "Founder & Managing Director",
                 bio: "Ms. Jyoshna Yellapu has over 3+ years of experience in Soft Skills and Aptitude training, career guidance, and academic project mentoring. She has actively participated in CSR initiatives and skill development programs, conducting Soft Skills and Aptitude training sessions for <span class='font-black text-primary border-b-2 border-accent'>1,500+ students</span> and supporting them with placement assistance. She leads organizational strategy, training delivery, and student development activities to ensure strong academic and career outcomes.",
-                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400"
+                image: ""
             },
             vahid: {
                 id: 'vahid',
                 name: "Mr. Vahid Shaik",
                 role: "Co-Founder & Academic Director",
                 bio: "Mr. Vahid Shaik has over 2+ years of experience in academic management and training. He is responsible for curriculum planning, maintaining training quality, and coordinating academic programs to ensure strong learning outcomes for students.",
-                image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400"
+                image: ""
             },
             sajeed: {
                 id: 'sajeed',
                 name: "Mr. Sajeed Shaik",
                 role: "Co-Founder & Operational Director",
                 bio: "Mr. Sajeed Shaik has over 2+ years of experience in operations management. He oversees organizational operations, program coordination, and service execution, ensuring smooth processes and efficient delivery of training and placement activities.",
-                image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400"
+                image: ""
             },
             himasree: {
                 id: 'himasree',
                 name: "Ms. Himasree Yellapu",
                 role: "Co-Founder & Learning Support Director",
                 bio: "Ms. Himasree Yellapu has over 2+ years of experience in learning support and academic project guidance. She focuses on coordinating student support services, academic mentoring, and project assistance to improve learning outcomes and career readiness.",
-                image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400"
+                image: ""
             }
         },
         serviceBenefits: {
@@ -119,7 +119,9 @@ document.addEventListener('DOMContentLoaded', () => {
         listContainer.innerHTML = Object.values(appData.directorBios).map(director => `
             <div class="flex items-center justify-between p-6 bg-slate-50 rounded-2xl border border-slate-100 group">
                 <div class="flex items-center space-x-4">
-                    <img src="${director.image}" class="w-12 h-12 rounded-full object-cover">
+                    <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+                        <i data-lucide="user" class="w-5 h-5"></i>
+                    </div>
                     <div>
                         <h4 class="font-bold text-primary">${director.name}</h4>
                         <p class="text-sm text-slate-500">${director.role}</p>
@@ -150,7 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('edit-id').value = id;
         document.getElementById('edit-name').value = director.name;
         document.getElementById('edit-role').value = director.role;
-        document.getElementById('edit-image').value = director.image;
         document.getElementById('edit-bio').value = director.bio;
         document.getElementById('modal-title').textContent = 'Edit Director Profile';
         document.getElementById('edit-modal').classList.remove('hidden');
@@ -176,7 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
             id: id,
             name: document.getElementById('edit-name').value,
             role: document.getElementById('edit-role').value,
-            image: document.getElementById('edit-image').value,
             bio: document.getElementById('edit-bio').value
         };
 

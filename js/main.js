@@ -29,28 +29,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 name: "Ms. Jyoshna Yellapu",
                 role: "Founder & Managing Director",
                 bio: "Ms. Jyoshna Yellapu has over 3+ years of experience in Soft Skills and Aptitude training, career guidance, and academic project mentoring. She has actively participated in CSR initiatives and skill development programs, conducting Soft Skills and Aptitude training sessions for <span class='font-black text-primary border-b-2 border-accent'>1,500+ students</span> and supporting them with placement assistance. She leads organizational strategy, training delivery, and student development activities to ensure strong academic and career outcomes.",
-                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400"
+                image: ""
             },
             vahid: {
                 id: 'vahid',
                 name: "Mr. Vahid Shaik",
                 role: "Co-Founder & Academic Director",
                 bio: "Mr. Vahid Shaik has over 2+ years of experience in academic management and training. He is responsible for curriculum planning, maintaining training quality, and coordinating academic programs to ensure strong learning outcomes for students.",
-                image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400"
+                image: ""
             },
             sajeed: {
                 id: 'sajeed',
                 name: "Mr. Sajeed Shaik",
                 role: "Co-Founder & Operational Director",
                 bio: "Mr. Sajeed Shaik has over 2+ years of experience in operations management. He oversees organizational operations, program coordination, and service execution, ensuring smooth processes and efficient delivery of training and placement activities.",
-                image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400"
+                image: ""
             },
             himasree: {
                 id: 'himasree',
                 name: "Ms. Himasree Yellapu",
                 role: "Co-Founder & Learning Support Director",
                 bio: "Ms. Himasree Yellapu has over 2+ years of experience in learning support and academic project guidance. She focuses on coordinating student support services, academic mentoring, and project assistance to improve learning outcomes and career readiness.",
-                image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400"
+                image: ""
             }
         },
         serviceBenefits: {
@@ -197,17 +197,17 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = Object.values(directorBios).map(director => {
             if (layoutType === 'grid') {
                 return `
-                    <div class="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
-                        <div class="aspect-[4/5] overflow-hidden">
-                            <img src="${director.image}" alt="${director.name}"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+                    <div class="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal p-8">
+                        <div class="mb-6">
+                            <div class="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center">
+                                <i data-lucide="user" class="w-8 h-8"></i>
+                            </div>
                         </div>
-                        <div class="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <h4 class="text-2xl font-bold text-white mb-1">${director.name}</h4>
-                            <p class="text-light font-medium mb-4">${director.role}</p>
+                        <div>
+                            <h4 class="text-2xl font-bold text-primary mb-1">${director.name}</h4>
+                            <p class="text-accent font-medium mb-6">${director.role}</p>
                             <button onclick="openDirectorModal('${director.id}')"
-                                class="flex items-center space-x-2 text-white/80 hover:text-white text-sm font-bold group/btn">
+                                class="flex items-center space-x-2 text-slate-600 hover:text-primary text-sm font-bold group/btn">
                                 <span>Read Full Bio</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover/btn:translate-x-2 transition-transform"></i>
                             </button>
@@ -216,10 +216,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
             } else {
                 return `
-                    <div class="flex items-center justify-between gap-6 p-4 bg-slate-50 rounded-2xl border border-slate-100 group">
+                    <div class="flex items-center justify-between gap-6 p-6 bg-slate-50 rounded-2xl border border-slate-100 group">
                         <div class="flex items-center gap-6">
-                            <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center shadow-lg overflow-hidden">
-                                <img src="${director.image}" alt="${director.name}" class="w-full h-full object-cover">
+                            <div class="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center">
+                                <i data-lucide="user" class="w-6 h-6"></i>
                             </div>
                             <div>
                                 <h5 class="text-xl font-bold text-primary">${director.name}</h5>
