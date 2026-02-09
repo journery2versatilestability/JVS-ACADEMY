@@ -193,28 +193,55 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Dynamic Rendering for Directors (if container exists)
-    const directorsGrid = document.getElementById('directors-grid');
-    if (directorsGrid) {
-        directorsGrid.innerHTML = Object.values(directorBios).map(director => `
-            <div class="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
-                <div class="aspect-[4/5] overflow-hidden">
-                    <img src="${director.image}" alt="${director.name}"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
-                </div>
-                <div class="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <h4 class="text-2xl font-bold text-white mb-1">${director.name}</h4>
-                    <p class="text-light font-medium mb-4">${director.role}</p>
-                    <button onclick="openDirectorModal('${director.id}')"
-                        class="flex items-center space-x-2 text-white/80 hover:text-white text-sm font-bold group/btn">
-                        <span>Read Full Bio</span>
-                        <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover/btn:translate-x-2 transition-transform"></i>
-                    </button>
-                </div>
-            </div>
-        `).join('');
-        lucide.createIcons(); // Re-initialize icons for dynamic content
-    }
+    const renderDirectors = (containerId, layoutType) => {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        container.innerHTML = Object.values(directorBios).map(director => {
+            if (layoutType === 'grid') {
+                return `
+                    <div class="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
+                        <div class="aspect-[4/5] overflow-hidden">
+                            <img src="${director.image}" alt="${director.name}"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <h4 class="text-2xl font-bold text-white mb-1">${director.name}</h4>
+                            <p class="text-light font-medium mb-4">${director.role}</p>
+                            <button onclick="openDirectorModal('${director.id}')"
+                                class="flex items-center space-x-2 text-white/80 hover:text-white text-sm font-bold group/btn">
+                                <span>Read Full Bio</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover/btn:translate-x-2 transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else {
+                return `
+                    <div class="flex items-center justify-between gap-6 p-4 bg-slate-50 rounded-2xl border border-slate-100 group">
+                        <div class="flex items-center gap-6">
+                            <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center shadow-lg overflow-hidden">
+                                <img src="${director.image}" alt="${director.name}" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h5 class="text-xl font-bold text-primary">${director.name}</h5>
+                                <p class="text-slate-500 font-medium font-bold">${director.role}</p>
+                            </div>
+                        </div>
+                        <button onclick="openDirectorModal('${director.id}')"
+                            class="text-accent font-bold text-sm hover:underline flex items-center gap-1">
+                            View More <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `;
+            }
+        }).join('');
+        lucide.createIcons();
+    };
+
+    renderDirectors('directors-grid', 'grid');
+    renderDirectors('director-list', 'list');
 
     // Dynamic Rendering for Courses (if container exists)
     const coursesGrid = document.getElementById('courses-grid');
