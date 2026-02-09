@@ -69,8 +69,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Load Data from LocalStorage or use defaults
-    const appData = JSON.parse(localStorage.getItem('jvs_app_data')) || defaultData;
+    // Robust Data Loading: Load from LocalStorage and merge with defaults
+    const savedData = JSON.parse(localStorage.getItem('jvs_app_data')) || {};
+    const appData = {
+        siteConfig: { ...defaultData.siteConfig, ...(savedData.siteConfig || {}) },
+        directorBios: { ...defaultData.directorBios, ...(savedData.directorBios || {}) },
+        serviceBenefits: { ...defaultData.serviceBenefits, ...(savedData.serviceBenefits || {}) }
+    };
     const { siteConfig, directorBios, serviceBenefits } = appData;
 
     // Helper to save data (visible for debugging/admin)
@@ -236,8 +241,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const coursesGrid = document.getElementById('courses-grid');
         if (!coursesGrid) return;
 
-        coursesGrid.innerHTML = Object.keys(serviceBenefits).map(key => {
-            const course = serviceBenefits[key];
+        const benefits = serviceBenefits || defaultData.serviceBenefits;
+        const keys = Object.keys(benefits);
+
+        if (keys.length === 0) {
+            console.warn('JVS: No courses found in serviceBenefits');
+            return;
+        }
+
+        coursesGrid.innerHTML = keys.map(key => {
+            const course = benefits[key];
             return `
                 <button onclick="openServiceModal('${key}')"
                     class="scroll-reveal p-5 bg-white rounded-2xl border-2 border-slate-100 font-black text-primary flex items-center justify-center gap-3 hover:border-accent hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group shadow-sm">

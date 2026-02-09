@@ -64,8 +64,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Load Data
-    let appData = JSON.parse(localStorage.getItem('jvs_app_data')) || defaultData;
+    // Load Data with robust merging
+    const savedData = JSON.parse(localStorage.getItem('jvs_app_data')) || {};
+    let appData = {
+        siteConfig: { ...defaultData.siteConfig, ...(savedData.siteConfig || {}) },
+        directorBios: { ...defaultData.directorBios, ...(savedData.directorBios || {}) },
+        serviceBenefits: { ...defaultData.serviceBenefits, ...(savedData.serviceBenefits || {}) }
+    };
 
     // Helper to sync
     const syncData = () => {
