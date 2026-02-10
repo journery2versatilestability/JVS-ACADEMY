@@ -112,6 +112,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         };
     }
 
+    // CLEANUP: Remove legacy duplicate keys if they exist
+    if (appData.serviceBenefits.aptitude) delete appData.serviceBenefits.aptitude;
+    if (appData.serviceBenefits.itnonit) delete appData.serviceBenefits.itnonit;
+
     // INITIALIZE GENERAL FORM
     const initGeneralForm = () => {
         const config = appData.siteConfig;

@@ -91,6 +91,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         };
     }
 
+    // CLEANUP: Remove legacy duplicate keys
+    if (appData.serviceBenefits.aptitude) delete appData.serviceBenefits.aptitude;
+    if (appData.serviceBenefits.itnonit) delete appData.serviceBenefits.itnonit;
+
     siteConfig = appData.siteConfig;
     directorBios = appData.directorBios;
     serviceBenefits = appData.serviceBenefits;
