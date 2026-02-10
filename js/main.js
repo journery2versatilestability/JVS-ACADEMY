@@ -67,9 +67,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             cloud: { name: "Cloud (AWS & Azure)", benefit: "Lead digital transformations by managing scalable and secure infrastructures on top cloud platforms.", price: "₹24,999/-" },
             networking: { name: "Networking (CCNA)", benefit: "Build the backbone of modern communication by mastering complex network architectures and security.", price: "₹17,999/-" },
             powerbi: { name: "Power BI", benefit: "Visualize success by creating interactive, data-driven dashboards that tell compelling business stories.", price: "₹9,999/-" },
-            msoffice: { name: "MS Office Specialist", benefit: "Maximize workplace productivity with expert-level proficiency in the world's essential business suite.", price: "₹4,999/-" },
-            aptitude_6m: { name: "Aptitude, Soft Skills, Placement (6 Months)", benefit: "Comprehensive 6-month training in quantitative, logical reasoning, verbal ability, and soft skills with placement assistance.", price: "45000" },
-            aptitude_2m: { name: "Aptitude, Soft Skills, Placement (2 Months)", benefit: "Intensive 2-month crash course in aptitude and soft skills with placement guidance.", price: "25000" }
+            msoffice: { name: "MS Office Specialist", benefit: "Maximize workplace productivity with expert-level proficiency in the world's essential business suite.", price: "4,999" },
+            placement_training: { name: "Placement Training (6 Months)", benefit: "Comprehensive 6-month training covering aptitude, technical skills, and interview preparation to ensure career success.", price: "45,000" },
+            soft_skills: { name: "Soft Skills Training (2 Months)", benefit: "Intensive 2-month program focused on communication, leadership, emotional intelligence, and corporate etiquette.", price: "25,000" }
         }
     };
 
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // CLEANUP: Remove legacy/removed duplicate keys
-    const keysToRemove = ['aptitude', 'itnonit', 'itnonit_6m', 'itnonit_2m'];
+    const keysToRemove = ['aptitude', 'itnonit', 'itnonit_6m', 'itnonit_2m', 'aptitude_6m', 'aptitude_2m'];
     keysToRemove.forEach(key => {
         if (appData.serviceBenefits[key]) delete appData.serviceBenefits[key];
     });
@@ -185,23 +185,13 @@ const renderCourses = () => {
     const coursesGrid = document.getElementById('courses-grid');
     if (!coursesGrid) return;
 
-    // Filter out split aptitude keys from the main loop
-    const keys = Object.keys(serviceBenefits).filter(k => !k.startsWith('aptitude_'));
+    const keys = Object.keys(serviceBenefits);
 
-    let html = keys.map(key => `
+    const html = keys.map(key => `
         <button onclick="openServiceModal('${key}')" class="p-5 bg-white rounded-2xl border-2 border-slate-100 font-black text-primary hover:border-accent hover:shadow-xl transition-all">
             ${serviceBenefits[key].name}
         </button>
     `).join('');
-
-    // Add back a single combined Aptitude button
-    if (serviceBenefits['aptitude_6m'] || serviceBenefits['aptitude_2m']) {
-        html += `
-            <button onclick="openServiceModal('aptitude')" class="p-5 bg-white rounded-2xl border-2 border-slate-100 font-black text-primary hover:border-accent hover:shadow-xl transition-all">
-                Aptitude, Soft Skills & Placement
-            </button>
-        `;
-    }
 
     coursesGrid.innerHTML = html;
 };
@@ -224,34 +214,15 @@ window.openServiceModal = (id) => {
     const modal = document.getElementById('service-modal');
     const priceContainer = document.getElementById('modal-service-price');
 
-    if (id === 'aptitude') {
-        const m6 = serviceBenefits['aptitude_6m'];
-        const m2 = serviceBenefits['aptitude_2m'];
-        if (modal && m6 && m2) {
-            document.getElementById('modal-service-name').textContent = "Aptitude, Soft Skills & Placement";
-            document.getElementById('modal-service-benefit').textContent = "Master essential career skills with our comprehensive training programs.";
-            priceContainer.innerHTML = `
-                <div class="space-y-3">
-                    <div class="flex justify-between items-center border-b border-slate-200 pb-3">
-                        <span class="text-sm font-bold text-slate-400">6 MONTHS COURSE</span>
-                        <span class="text-2xl font-black text-primary">₹${m6.price}/-</span>
-                    </div>
-                    <div class="flex justify-between items-center pt-1">
-                        <span class="text-sm font-bold text-slate-400">2 MONTHS COURSE</span>
-                        <span class="text-2xl font-black text-primary">₹${m2.price}/-</span>
-                    </div>
-                </div>
-            `;
-            modal.classList.remove('hidden');
-        }
-        return;
-    }
-
     const data = serviceBenefits[id];
     if (modal && data) {
         document.getElementById('modal-service-name').textContent = data.name;
         document.getElementById('modal-service-benefit').textContent = data.benefit;
-        priceContainer.innerHTML = `<span class="text-4xl font-black text-primary italic">₹${data.price}/-</span>`;
+
+        // Clean price formatting
+        const price = data.price.includes('₹') ? data.price : `₹${data.price}/-`;
+        priceContainer.innerHTML = `<span class="text-4xl font-black text-primary italic">${price}</span>`;
+
         modal.classList.remove('hidden');
     }
 };
