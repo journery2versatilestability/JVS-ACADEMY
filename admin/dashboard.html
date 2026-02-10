@@ -43,6 +43,11 @@
                     <i data-lucide="external-link" class="w-4 h-4"></i>
                     <span>Preview Site</span>
                 </a>
+                <button onclick="syncAllToCloud()"
+                    class="bg-accent/20 hover:bg-accent px-4 py-2 rounded-lg transition-all text-sm font-bold border border-accent/50 flex items-center space-x-2">
+                    <i data-lucide="cloud-upload" class="w-4 h-4"></i>
+                    <span>Sync to Cloud</span>
+                </button>
                 <button onclick="logout()"
                     class="bg-red-500/20 hover:bg-red-500 px-4 py-2 rounded-lg transition-all text-sm font-bold border border-red-500/50">
                     Logout
@@ -106,7 +111,11 @@
                             <textarea name="address" id="conf-address" rows="2"
                                 class="w-full px-5 py-4 bg-slate-50 border rounded-xl outline-none focus:ring-2 focus:ring-primary transition-all"></textarea>
                         </div>
-                        <div class="md:col-span-2 flex justify-end">
+                        <div class="md:col-span-2 flex justify-end space-x-4">
+                            <button type="button" onclick="syncAllToCloud()"
+                                class="bg-accent/10 text-accent px-10 py-4 rounded-xl font-bold hover:bg-accent hover:text-white transition-all">
+                                Sync all to Cloud
+                            </button>
                             <button type="submit"
                                 class="bg-primary text-white px-10 py-4 rounded-xl font-bold shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all">Save
                                 Changes</button>
@@ -178,6 +187,8 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/supabase-config.js"></script>
     <script src="../js/admin.js"></script>
     <script>lucide.createIcons();</script>
 </body>

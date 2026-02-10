@@ -1,7 +1,9 @@
 // JVS Academy Main JS
 
-document.addEventListener('DOMContentLoaded', () => {
-    // === Centralized Data (Command Center) ===
+// Global State
+let siteConfig, directorBios, serviceBenefits;
+
+document.addEventListener('DOMContentLoaded', async () => {
     const defaultData = {
         siteConfig: {
             contact: {
@@ -28,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 id: 'jyoshna',
                 name: "Ms. Jyoshna Yellapu",
                 role: "Founder & Managing Director",
-                bio: "Ms. Jyoshna Yellapu has over 3+ years of experience in Soft Skills and Aptitude training, career guidance, and academic project mentoring. She has actively participated in CSR initiatives and skill development programs, conducting Soft Skills and Aptitude training sessions for <span class='font-black text-primary border-b-2 border-accent'>1,500+ students</span> and supporting them with placement assistance. She leads organizational strategy, training delivery, and student development activities to ensure strong academic and career outcomes.",
+                bio: "Ms. Jyoshna Yellapu has over 3+ years of experience in Soft Skills and Aptitude training, career guidance, and academic project mentoring. She has actively participated in CSR initiatives and skill development programs, conducting Soft Skills and Aptitude training sessions for 1,500+ students and supporting them with placement assistance. She leads organizational strategy, training delivery, and student development activities to ensure strong academic and career outcomes.",
                 image: ""
             },
             vahid: {
@@ -69,257 +71,136 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Robust Data Loading: Load from LocalStorage and merge with defaults
     const savedData = JSON.parse(localStorage.getItem('jvs_app_data')) || {};
-    const appData = {
+    let appData = {
         siteConfig: { ...defaultData.siteConfig, ...(savedData.siteConfig || {}) },
         directorBios: { ...defaultData.directorBios, ...(savedData.directorBios || {}) },
         serviceBenefits: { ...defaultData.serviceBenefits, ...(savedData.serviceBenefits || {}) }
     };
-    const { siteConfig, directorBios, serviceBenefits } = appData;
 
-    // Helper to save data (visible for debugging/admin)
-    window.saveAppData = (data) => {
-        localStorage.setItem('jvs_app_data', JSON.stringify(data));
-        location.reload();
-    };
+    const cloudData = await fetchAppData();
+    if (cloudData) {
+        appData = {
+            siteConfig: { ...appData.siteConfig, ...(cloudData.siteConfig || {}) },
+            directorBios: { ...appData.directorBios, ...(cloudData.directorBios || {}) },
+            serviceBenefits: { ...appData.serviceBenefits, ...(cloudData.serviceBenefits || {}) }
+        };
+    }
 
-    // === Dynamic Data Injection ===
-    const injectDynamicData = () => {
-        // Update all phone instances
-        document.querySelectorAll('.conf-phone').forEach(el => el.textContent = siteConfig.contact.phone);
+    siteConfig = appData.siteConfig;
+    directorBios = appData.directorBios;
+    serviceBenefits = appData.serviceBenefits;
 
-        // Update all email instances
-        document.querySelectorAll('.conf-email').forEach(el => el.textContent = siteConfig.contact.email);
+    // INITIALIZE
+    injectDynamicData();
+    renderDirectors('directors-grid', 'grid');
+    renderDirectors('director-list', 'list');
+    renderCourses();
 
-        // Update all address instances
-        document.querySelectorAll('.conf-address').forEach(el => el.textContent = siteConfig.contact.address);
-
-        // Update all CIN instances
-        document.querySelectorAll('.conf-cin').forEach(el => el.textContent = siteConfig.contact.cin);
-
-        // Update WhatsApp links
-        document.querySelectorAll('.conf-whatsapp-link').forEach(el => {
-            el.href = `https://wa.me/${siteConfig.contact.phoneRaw}?text=${encodeURIComponent(siteConfig.contact.whatsappMsg)}`;
-        });
-
-        // Update Social links
-        document.querySelectorAll('.conf-ig-main').forEach(el => el.href = siteConfig.social.instagram);
-        document.querySelectorAll('.conf-ig-learnix').forEach(el => el.href = siteConfig.social.instagramLearnix);
-
-        // Update Stats
-        document.querySelectorAll('.conf-students-trained').forEach(el => el.textContent = siteConfig.stats.studentsTrained);
-        document.querySelectorAll('.conf-placement-rate').forEach(el => el.textContent = siteConfig.stats.placementRate);
-        document.querySelectorAll('.conf-training-duration').forEach(el => el.textContent = siteConfig.stats.trainingDuration);
-
-        // Update Company Name/Copyright
-        const year = new Date().getFullYear();
-        document.querySelectorAll('.conf-company-copyright').forEach(el => {
-            el.innerHTML = `&copy; ${year} ${siteConfig.companyName}. All Rights Reserved. CIN: ${siteConfig.contact.cin}`;
-        });
-    };
+    lucide.createIcons();
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+        el.style.opacity = '0';
+        observer.observe(el);
+    });
 
     // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-
     if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
     }
 
-    // Floating WhatsApp redirection
-    const whatsappBtn = document.querySelector('.floating-whatsapp');
-    if (whatsappBtn) {
-        whatsappBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.open(`https://wa.me/${siteConfig.contact.phoneRaw}?text=${encodeURIComponent(siteConfig.contact.whatsappMsg)}`, '_blank');
-        });
-    }
-
-    // Smooth Scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Simple Intersection Observer for scroll animations
-    const observerOptions = {
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-fade-up');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Contact Form WhatsApp Integration
+    // Contact Form
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-
             const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const userPhone = document.getElementById('user-phone').value;
-            const interest = document.getElementById('interest').value;
-            const userMessage = document.getElementById('message').value;
-
-            const phone = siteConfig.contact.phoneRaw;
-            const fullMessage = `*New Form Submission - JVS Academy*%0A%0A` +
-                `*Name:* ${name}%0A` +
-                `*Email:* ${email}%0A` +
-                `*Phone:* ${userPhone}%0A` +
-                `*Interest:* ${interest}%0A` +
-                `*Message:* ${userMessage}`;
-
-            window.open(`https://wa.me/${phone}?text=${fullMessage}`, '_blank');
+            const fullMessage = `*New Form Submission*%0A*Name:* ${name}%0A*Interest:* ${document.getElementById('interest').value}`;
+            window.open(`https://wa.me/${siteConfig.contact.phoneRaw}?text=${fullMessage}`, '_blank');
         });
     }
-
-    // === Dynamic Rendering for Directors ===
-    const renderDirectors = (containerId, layoutType) => {
-        const container = document.getElementById(containerId);
-        if (!container) return;
-
-        container.innerHTML = Object.values(directorBios).map(director => {
-            if (layoutType === 'grid') {
-                return `
-                    <div class="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal p-8">
-                        <div class="mb-6">
-                            <div class="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center">
-                                <i data-lucide="user" class="w-8 h-8"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="text-2xl font-bold text-primary mb-1">${director.name}</h4>
-                            <p class="text-accent font-medium mb-6">${director.role}</p>
-                            <button onclick="openDirectorModal('${director.id}')"
-                                class="flex items-center space-x-2 text-slate-600 hover:text-primary text-sm font-bold group/btn">
-                                <span>Read Full Bio</span>
-                                <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover/btn:translate-x-2 transition-transform"></i>
-                            </button>
-                        </div>
-                    </div>
-                `;
-            } else {
-                return `
-                    <div class="flex items-center justify-between gap-6 p-6 bg-slate-50 rounded-2xl border border-slate-100 group">
-                        <div class="flex items-center gap-6">
-                            <div class="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center">
-                                <i data-lucide="user" class="w-6 h-6"></i>
-                            </div>
-                            <div>
-                                <h5 class="text-xl font-bold text-primary">${director.name}</h5>
-                                <p class="text-slate-500 font-medium font-bold">${director.role}</p>
-                            </div>
-                        </div>
-                        <button onclick="openDirectorModal('${director.id}')"
-                            class="text-accent font-bold text-sm hover:underline flex items-center gap-1">
-                            View More <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                        </button>
-                    </div>
-                `;
-            }
-        }).join('');
-    };
-
-    // === Dynamic Rendering for Courses ===
-    const renderCourses = () => {
-        const coursesGrid = document.getElementById('courses-grid');
-        if (!coursesGrid) return;
-
-        const benefits = serviceBenefits || defaultData.serviceBenefits;
-        const keys = Object.keys(benefits);
-
-        if (keys.length === 0) {
-            console.warn('JVS: No courses found in serviceBenefits');
-            return;
-        }
-
-        coursesGrid.innerHTML = keys.map(key => {
-            const course = benefits[key];
-            return `
-                <button onclick="openServiceModal('${key}')"
-                    class="scroll-reveal p-5 bg-white rounded-2xl border-2 border-slate-100 font-black text-primary flex items-center justify-center gap-3 hover:border-accent hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group shadow-sm">
-                    <div class="w-3 h-3 bg-accent rounded-full group-hover:scale-125 transition-transform"></div>
-                    <span>${course.name}</span>
-                </button>
-            `;
-        }).join('');
-    };
-
-    // Initialize All Dynamic Content
-    const initializeApp = () => {
-        injectDynamicData();
-        renderDirectors('directors-grid', 'grid');
-        renderDirectors('director-list', 'list');
-        renderCourses();
-
-        // Re-initialize icons and observers for dynamic content
-        lucide.createIcons();
-        document.querySelectorAll('.scroll-reveal').forEach(el => {
-            el.style.opacity = '0';
-            observer.observe(el);
-        });
-    };
-
-    initializeApp();
-
-    // Modal Functions
-    window.openDirectorModal = (id) => {
-        const modal = document.getElementById('director-modal');
-        const data = directorBios[id];
-
-        if (modal && data) {
-            document.getElementById('modal-director-name').textContent = data.name;
-            document.getElementById('modal-director-role').textContent = data.role;
-            document.getElementById('modal-director-bio').innerHTML = data.bio;
-
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-    };
-
-    window.closeDirectorModal = () => {
-        const modal = document.getElementById('director-modal');
-        if (modal) {
-            modal.classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-    };
-
-    window.openServiceModal = (id) => {
-        const modal = document.getElementById('service-modal');
-        const data = serviceBenefits[id];
-
-        if (modal && data) {
-            document.getElementById('modal-service-name').textContent = data.name;
-            document.getElementById('modal-service-benefit').textContent = data.benefit;
-            document.getElementById('modal-service-price').textContent = data.price;
-
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-    };
-
-    window.closeServiceModal = () => {
-        const modal = document.getElementById('service-modal');
-        if (modal) {
-            modal.classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-    };
 });
+
+const injectDynamicData = () => {
+    document.querySelectorAll('.conf-phone').forEach(el => el.textContent = siteConfig.contact.phone);
+    document.querySelectorAll('.conf-email').forEach(el => el.textContent = siteConfig.contact.email);
+    document.querySelectorAll('.conf-address').forEach(el => el.textContent = siteConfig.contact.address);
+    document.querySelectorAll('.conf-cin').forEach(el => el.textContent = siteConfig.contact.cin);
+    document.querySelectorAll('.conf-whatsapp-link').forEach(el => {
+        el.href = `https://wa.me/${siteConfig.contact.phoneRaw}?text=${encodeURIComponent(siteConfig.contact.whatsappMsg)}`;
+    });
+    const year = new Date().getFullYear();
+    document.querySelectorAll('.conf-company-copyright').forEach(el => {
+        el.innerHTML = `&copy; ${year} ${siteConfig.companyName}. All Rights Reserved. CIN: ${siteConfig.contact.cin}`;
+    });
+};
+
+const renderDirectors = (containerId, layoutType) => {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.innerHTML = Object.values(directorBios).map(director => {
+        if (layoutType === 'grid') {
+            return `
+                <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
+                    <h4 class="text-2xl font-bold text-primary mb-1">${director.name}</h4>
+                    <p class="text-accent font-medium mb-6">${director.role}</p>
+                    <button onclick="openDirectorModal('${director.id}')" class="text-sm font-bold text-slate-600 hover:text-primary">Read Bio →</button>
+                </div>
+            `;
+        } else {
+            return `
+                <div class="flex items-center justify-between p-6 bg-slate-50 rounded-2xl group">
+                    <h5 class="text-xl font-bold text-primary">${director.name}</h5>
+                    <button onclick="openDirectorModal('${director.id}')" class="text-accent font-bold">View More →</button>
+                </div>
+            `;
+        }
+    }).join('');
+};
+
+const renderCourses = () => {
+    const coursesGrid = document.getElementById('courses-grid');
+    if (!coursesGrid) return;
+    coursesGrid.innerHTML = Object.keys(serviceBenefits).map(key => `
+        <button onclick="openServiceModal('${key}')" class="p-5 bg-white rounded-2xl border-2 border-slate-100 font-black text-primary hover:border-accent hover:shadow-xl transition-all">
+            ${serviceBenefits[key].name}
+        </button>
+    `).join('');
+};
+
+// Global Modals
+window.openDirectorModal = (id) => {
+    const modal = document.getElementById('director-modal');
+    const data = directorBios[id];
+    if (modal && data) {
+        document.getElementById('modal-director-name').textContent = data.name;
+        document.getElementById('modal-director-role').textContent = data.role;
+        document.getElementById('modal-director-bio').innerHTML = data.bio;
+        modal.classList.remove('hidden');
+    }
+};
+
+window.closeDirectorModal = () => document.getElementById('director-modal').classList.add('hidden');
+
+window.openServiceModal = (id) => {
+    const modal = document.getElementById('service-modal');
+    const data = serviceBenefits[id];
+    if (modal && data) {
+        document.getElementById('modal-service-name').textContent = data.name;
+        document.getElementById('modal-service-benefit').textContent = data.benefit;
+        document.getElementById('modal-service-price').textContent = data.price;
+        modal.classList.remove('hidden');
+    }
+};
+
+window.closeServiceModal = () => document.getElementById('service-modal').classList.add('hidden');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-up');
+            entry.target.style.opacity = '1';
+        }
+    });
+}, { threshold: 0.1 });
