@@ -68,7 +68,9 @@ const defaultData = {
         cloud: { name: "Cloud (AWS & Azure)", benefit: "Lead digital transformations by managing scalable and secure infrastructures on top cloud platforms.", price: "₹24,999/-" },
         networking: { name: "Networking (CCNA)", benefit: "Build the backbone of modern communication by mastering complex network architectures and security.", price: "₹17,999/-" },
         powerbi: { name: "Power BI", benefit: "Visualize success by creating interactive, data-driven dashboards that tell compelling business stories.", price: "₹9,999/-" },
-        msoffice: { name: "MS Office Specialist", benefit: "Maximize workplace productivity with expert-level proficiency in the world's essential business suite.", price: "₹4,999/-" }
+        msoffice: { name: "MS Office Specialist", benefit: "Maximize workplace productivity with expert-level proficiency in the world's essential business suite.", price: "₹4,999/-" },
+        aptitude: { name: "Aptitude, Soft Skills & Placement", benefit: "Comprehensive training in quantitative, logical reasoning, verbal ability, and soft skills to ensure placement success.", price: "₹45,000/- (6 Months)" },
+        itnonit: { name: "IT/NON IT COURSE", benefit: "Specialized training paths for both technical and non-technical professional roles.", price: "₹25,000/- (2 Months)" }
     }
 };
 
