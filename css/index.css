@@ -17,15 +17,26 @@
     @apply bg-slate-50 text-slate-900 font-sans antialiased;
     scroll-behavior: smooth;
   }
+
+  /* Smooth scroll for all browsers */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom selection color */
+  ::selection {
+    background-color: #2C74B3;
+    color: white;
+  }
 }
 
 @layer components {
   .btn-primary {
-    @apply px-8 py-3 bg-primary-blue text-white rounded-lg font-semibold hover:bg-secondary-blue transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl active:scale-95;
+    @apply px-8 py-3 bg-primary-blue text-white rounded-xl font-semibold hover:bg-secondary-blue transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl active:scale-95;
   }
 
   .btn-outline {
-    @apply px-8 py-3 border-2 border-primary-blue text-primary-blue rounded-lg font-semibold hover:bg-primary-blue hover:text-white transition-all duration-300;
+    @apply px-8 py-3 border-2 border-primary-blue text-primary-blue rounded-xl font-semibold hover:bg-primary-blue hover:text-white transition-all duration-300 hover:-translate-y-0.5;
   }
 
   .nav-link {
@@ -33,11 +44,11 @@
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl font-black text-primary-blue text-center mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-accent-blue;
+    @apply text-3xl md:text-4xl font-black text-primary-blue text-center mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-accent-blue after:rounded-full;
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-slate-100 bg-white;
+    @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-slate-100 bg-white rounded-2xl;
   }
 }
 
@@ -45,7 +56,7 @@
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
 
   to {
@@ -54,8 +65,45 @@
   }
 }
 
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
 .animate-fade-up {
   animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-left {
+  animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #205295, #2C74B3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .floating-whatsapp {
@@ -71,16 +119,46 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
   transition: all 0.3s ease;
+  animation: float 3s ease-in-out infinite;
 }
 
 .floating-whatsapp:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1.15);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
 }
 
 /* Glassmorphism utility */
 .glass {
   @apply bg-white/80 backdrop-blur-md border border-white/20;
+}
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.3s ease;
+}
+
+/* Navbar glassmorphism on scroll */
+nav.scrolled {
+  backdrop-filter: blur(12px);
+  background-color: rgba(10, 38, 71, 0.95) !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2C74B3;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #205295;
 }
