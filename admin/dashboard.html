@@ -4,17 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard | JVS Academy</title>
+    <title>Admin Dashboard | JVS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0A2647',
-                        secondary: '#144272',
-                        accent: '#205295',
-                        light: '#2C74B3',
+                        primary: '#0f172a',
+                        secondary: '#1e293b',
+                        accent: '#6366f1',
+                        light: '#818cf8',
                     }
                 }
             }
@@ -35,7 +35,7 @@
     <nav class="bg-primary text-white h-20 flex items-center shadow-lg">
         <div class="max-w-7xl mx-auto px-4 w-full flex justify-between items-center">
             <div class="flex items-center space-x-4">
-                <img src="../assets/images/logo.png" alt="JVS Academy" class="h-12">
+                <img src="../assets/images/logo.png" alt="JVS" class="h-12">
                 <span class="font-bold text-xl">Admin Dashboard</span>
             </div>
             <div class="flex items-center space-x-6">
@@ -77,6 +77,12 @@
                     data-tab="courses">
                     <i data-lucide="book-open" class="w-5 h-5"></i>
                     <span>Course Pricing</span>
+                </button>
+                <button onclick="switchTab('enquiries')"
+                    class="tab-btn w-full text-left px-6 py-4 rounded-xl flex items-center space-x-3 transition-all font-bold group hover:bg-white hover:shadow-md text-slate-600"
+                    data-tab="enquiries">
+                    <i data-lucide="inbox" class="w-5 h-5"></i>
+                    <span>Enquiries</span>
                 </button>
             </div>
 
@@ -154,6 +160,29 @@
                             class="bg-primary text-white px-10 py-4 rounded-xl font-bold shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all">
                             Save All Prices
                         </button>
+                    </div>
+                </div>
+
+                <!-- Enquiries Tab -->
+                <div id="tab-enquiries" class="tab-content bg-white rounded-3xl shadow-xl p-8 md:p-12 hidden">
+                    <div class="flex justify-between items-center mb-8 border-b pb-4">
+                        <h2 class="text-3xl font-bold text-primary">Enquiries</h2>
+                        <div class="flex items-center space-x-3">
+                            <select id="enquiry-filter" onchange="renderEnquiries()" class="px-4 py-2 bg-slate-50 border rounded-lg text-sm outline-none">
+                                <option value="all">All Status</option>
+                                <option value="new">New</option>
+                                <option value="contacted">Contacted</option>
+                                <option value="resolved">Resolved</option>
+                            </select>
+                            <button onclick="loadEnquiries()" class="bg-accent/10 text-accent px-4 py-2 rounded-lg font-bold text-sm hover:bg-accent hover:text-white transition-all flex items-center space-x-2">
+                                <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+                                <span>Refresh</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="enquiries-count" class="mb-4 text-sm text-slate-400"></div>
+                    <div id="enquiries-list" class="space-y-4">
+                        <p class="text-slate-400 text-center py-8">Loading enquiries...</p>
                     </div>
                 </div>
             </div>
