@@ -1,4 +1,4 @@
-// JVS Academy Admin JS
+// JVS Admin JS
 
 // Global App State
 let appData = null;
@@ -17,7 +17,7 @@ const defaultData = {
             email: "jvsacademyofficial@gmail.com",
             address: "Visakhapatnam, Andhra Pradesh - 530022",
             cin: "U85499AP2026PTC123692",
-            whatsappMsg: "Hello JVS Academy, I'm interested in your programs."
+                whatsappMsg: "Hello JVS, I'm interested in your programs."
         },
         stats: {
             studentsTrained: "1,500+",

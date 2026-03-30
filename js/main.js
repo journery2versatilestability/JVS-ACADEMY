@@ -1,4 +1,4 @@
-// JVS Academy Main JS
+// JVS Main JS
 
 // Global State
 let siteConfig, directorBios, serviceBenefits;
@@ -12,10 +12,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 email: "jvsacademyofficial@gmail.com",
                 address: "Visakhapatnam, Andhra Pradesh - 530022",
                 cin: "U85499AP2026PTC123692",
-                whatsappMsg: "Hello JVS Academy, I'm interested in your programs."
+                whatsappMsg: "Hello JVS, I'm interested in your programs."
             },
             social: {
-                instagram: "https://www.instagram.com/jvsacademyofficial/",
+                instagram: "https://www.instagram.com/jvs_officials/",
                 instagramLearnix: "https://www.instagram.com/jvs_learnix/"
             },
             stats: {
