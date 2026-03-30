@@ -108,6 +108,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     lucide.createIcons();
     document.querySelectorAll('.scroll-reveal').forEach(el => {
         el.style.opacity = '0';
+        el.style.willChange = 'opacity, transform';
         observer.observe(el);
     });
 
