@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             contact: {
                 phone: "+91 91600 30342",
                 phoneRaw: "919160030342",
-                email: "jvsacademyofficial@gmail.com",
+                email: "jvs.officials@gmail.com",
                 address: "Visakhapatnam, Andhra Pradesh - 530022",
                 cin: "U85499AP2026PTC123692",
                 whatsappMsg: "Hello JVS, I'm interested in your programs."
@@ -121,11 +121,50 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Contact Form
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const name = document.getElementById('name').value;
-            const fullMessage = `*New Form Submission*%0A*Name:* ${name}%0A*Interest:* ${document.getElementById('interest').value}`;
-            window.open(`https://wa.me/${siteConfig.contact.phoneRaw}?text=${fullMessage}`, '_blank');
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+
+            const name = document.getElementById('name')?.value || '';
+            const phone = document.getElementById('user-phone')?.value || '';
+            const email = document.getElementById('email')?.value || '';
+            const interest = document.getElementById('interest')?.value || '';
+            const message = document.getElementById('message')?.value || '';
+
+            // Save to Supabase
+            const result = await submitEnquiry({
+                name, phone, email, interest, message,
+                source: window.location.pathname.includes('contact') ? 'contact_page' : 'home_page'
+            });
+
+            if (result.success) {
+                // Show success
+                btn.textContent = '✓ Sent!';
+                btn.classList.remove('bg-indigo-600');
+                btn.classList.add('bg-green-600');
+                contactForm.reset();
+
+                // Also open WhatsApp
+                const fullMessage = `*New Enquiry*%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Interest:* ${interest}${message ? '%0A*Message:* ' + message : ''}`;
+                setTimeout(() => {
+                    window.open(`https://wa.me/${siteConfig.contact.phoneRaw}?text=${fullMessage}`, '_blank');
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                    btn.classList.remove('bg-green-600');
+                    btn.classList.add('bg-indigo-600');
+                }, 1500);
+            } else {
+                btn.textContent = 'Failed — Try Again';
+                btn.classList.add('bg-red-500');
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                    btn.classList.remove('bg-red-500');
+                }, 2000);
+            }
         });
     }
 });

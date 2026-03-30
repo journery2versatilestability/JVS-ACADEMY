@@ -14,10 +14,10 @@ const defaultData = {
         contact: {
             phone: "+91 91600 30342",
             phoneRaw: "919160030342",
-            email: "jvsacademyofficial@gmail.com",
+            email: "jvs.officials@gmail.com",
             address: "Visakhapatnam, Andhra Pradesh - 530022",
             cin: "U85499AP2026PTC123692",
-                whatsappMsg: "Hello JVS, I'm interested in your programs."
+            whatsappMsg: "Hello JVS, I'm interested in your programs."
         },
         stats: {
             studentsTrained: "1,500+",
@@ -183,6 +183,9 @@ window.switchTab = (tabId) => {
             btn.classList.remove('text-slate-600', 'hover:bg-white', 'hover:shadow-md');
         }
     });
+
+    // Auto-load enquiries on tab switch
+    if (tabId === 'enquiries') loadEnquiries();
 };
 
 window.renderDirectors = () => {
@@ -324,3 +327,92 @@ window.logout = () => {
     sessionStorage.removeItem('jvs_admin_auth');
     window.location.href = 'login.html';
 };
+
+// ==================== ENQUIRIES ====================
+let allEnquiries = [];
+
+window.loadEnquiries = async () => {
+    const listEl = document.getElementById('enquiries-list');
+    if (!listEl) return;
+    listEl.innerHTML = '<p class="text-slate-400 text-center py-8">Loading...</p>';
+    allEnquiries = await fetchEnquiries();
+    renderEnquiries();
+};
+
+window.renderEnquiries = () => {
+    const listEl = document.getElementById('enquiries-list');
+    const countEl = document.getElementById('enquiries-count');
+    const filter = document.getElementById('enquiry-filter')?.value || 'all';
+
+    if (!listEl) return;
+
+    const filtered = filter === 'all' ? allEnquiries : allEnquiries.filter(e => e.status === filter);
+    countEl.textContent = `Showing ${filtered.length} of ${allEnquiries.length} enquiries`;
+
+    if (filtered.length === 0) {
+        listEl.innerHTML = '<p class="text-slate-400 text-center py-8">No enquiries found.</p>';
+        return;
+    }
+
+    listEl.innerHTML = filtered.map(eq => {
+        const statusColors = {
+            'new': 'bg-blue-100 text-blue-700',
+            'contacted': 'bg-yellow-100 text-yellow-700',
+            'resolved': 'bg-green-100 text-green-700'
+        };
+        const statusClass = statusColors[eq.status] || 'bg-slate-100 text-slate-600';
+        const date = new Date(eq.created_at).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' });
+
+        return `
+            <div class="p-5 bg-slate-50 rounded-2xl border border-slate-100 space-y-3">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h4 class="font-bold text-primary text-lg">${eq.name || 'Unknown'}</h4>
+                        <p class="text-xs text-slate-400">${date} &bull; ${eq.source || 'website'}</p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase ${statusClass}">${eq.status || 'new'}</span>
+                        <button onclick="deleteEnquiryItem(${eq.id})" class="p-1 hover:bg-red-50 rounded text-red-400 hover:text-red-600" title="Delete">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-2 text-sm">
+                    ${eq.phone ? `<div class="flex items-center space-x-2 text-slate-600"><i data-lucide="phone" class="w-3 h-3 text-slate-400"></i><span>${eq.phone}</span></div>` : ''}
+                    ${eq.email ? `<div class="flex items-center space-x-2 text-slate-600"><i data-lucide="mail" class="w-3 h-3 text-slate-400"></i><span>${eq.email}</span></div>` : ''}
+                    ${eq.interest ? `<div class="flex items-center space-x-2 text-slate-600"><i data-lucide="tag" class="w-3 h-3 text-slate-400"></i><span>${eq.interest}</span></div>` : ''}
+                </div>
+                ${eq.message ? `<div class="bg-white p-3 rounded-lg border border-slate-100 text-sm text-slate-600">${eq.message}</div>` : ''}
+                <div class="flex space-x-2 pt-1">
+                    <button onclick="changeEnquiryStatus(${eq.id}, 'new')" class="px-3 py-1 text-xs font-bold rounded-lg ${eq.status === 'new' ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-500 hover:bg-blue-100'}">New</button>
+                    <button onclick="changeEnquiryStatus(${eq.id}, 'contacted')" class="px-3 py-1 text-xs font-bold rounded-lg ${eq.status === 'contacted' ? 'bg-yellow-500 text-white' : 'bg-slate-100 text-slate-500 hover:bg-yellow-100'}">Contacted</button>
+                    <button onclick="changeEnquiryStatus(${eq.id}, 'resolved')" class="px-3 py-1 text-xs font-bold rounded-lg ${eq.status === 'resolved' ? 'bg-green-600 text-white' : 'bg-slate-100 text-slate-500 hover:bg-green-100'}">Resolved</button>
+                </div>
+            </div>
+        `;
+    }).join('');
+    lucide.createIcons();
+};
+
+window.changeEnquiryStatus = async (id, status) => {
+    const ok = await updateEnquiryStatus(id, status);
+    if (ok) {
+        const eq = allEnquiries.find(e => e.id === id);
+        if (eq) eq.status = status;
+        renderEnquiries();
+    } else {
+        alert('Failed to update status.');
+    }
+};
+
+window.deleteEnquiryItem = async (id) => {
+    if (!confirm('Delete this enquiry permanently?')) return;
+    const ok = await deleteEnquiry(id);
+    if (ok) {
+        allEnquiries = allEnquiries.filter(e => e.id !== id);
+        renderEnquiries();
+    } else {
+        alert('Failed to delete enquiry.');
+    }
+};
+

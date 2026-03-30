@@ -1,6 +1,6 @@
 // Supabase Configuration
 const SUPABASE_URL = "https://zjyagcajrwthoaufbsip.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_N-pU2mWfb5RvVhYcOfvEVg_8AASHtbF";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpqeWFnY2Fqcnd0aG9hdWZic2lwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2NjM1NDksImV4cCI6MjA4NjIzOTU0OX0.oCoHc1trYwrqHwAdPQPzaVfaOsQvS-4d0ZmqGg6Boo8";
 
 // Initialize the client
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -38,8 +38,99 @@ async function fetchAppData() {
 }
 
 /**
- * Update a specific section in Supabase
+ * Submit a new enquiry to Supabase
  */
+async function submitEnquiry(enquiryData) {
+    console.log("JVS: Submitting enquiry...");
+    try {
+        const { data, error } = await supabaseClient
+            .from('enquiries')
+            .insert({
+                name: enquiryData.name || '',
+                phone: enquiryData.phone || '',
+                email: enquiryData.email || '',
+                interest: enquiryData.interest || '',
+                message: enquiryData.message || '',
+                source: enquiryData.source || 'website'
+            });
+
+        if (error) {
+            console.error("JVS: Enquiry Submit Error:", error.message);
+            return { success: false, error: error.message };
+        }
+
+        console.log("JVS: Enquiry submitted successfully.");
+        return { success: true };
+    } catch (err) {
+        console.error("JVS: Unexpected Enquiry error:", err);
+        return { success: false, error: err.message };
+    }
+}
+
+/**
+ * Fetch all enquiries (admin use - requires service_role or RLS policy)
+ */
+async function fetchEnquiries() {
+    console.log("JVS: Fetching enquiries...");
+    try {
+        const { data, error } = await supabaseClient
+            .from('enquiries')
+            .select('*')
+            .order('created_at', { ascending: false });
+
+        if (error) {
+            console.error("JVS: Enquiries Fetch Error:", error.message);
+            return [];
+        }
+
+        return data || [];
+    } catch (err) {
+        console.error("JVS: Unexpected Enquiries Fetch error:", err);
+        return [];
+    }
+}
+
+/**
+ * Update enquiry status
+ */
+async function updateEnquiryStatus(id, status) {
+    try {
+        const { error } = await supabaseClient
+            .from('enquiries')
+            .update({ status: status })
+            .eq('id', id);
+
+        if (error) {
+            console.error("JVS: Enquiry Status Update Error:", error.message);
+            return false;
+        }
+        return true;
+    } catch (err) {
+        console.error("JVS: Unexpected error:", err);
+        return false;
+    }
+}
+
+/**
+ * Delete an enquiry
+ */
+async function deleteEnquiry(id) {
+    try {
+        const { error } = await supabaseClient
+            .from('enquiries')
+            .delete()
+            .eq('id', id);
+
+        if (error) {
+            console.error("JVS: Enquiry Delete Error:", error.message);
+            return false;
+        }
+        return true;
+    } catch (err) {
+        console.error("JVS: Unexpected error:", err);
+        return false;
+    }
+}
 async function updateAppData(sectionKey, dataValue) {
     console.log(`JVS: Saving ${sectionKey} to Supabase...`);
     try {
