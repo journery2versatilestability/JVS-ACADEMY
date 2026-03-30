@@ -1,4 +1,4 @@
-// JVS Academy Main JS
+// JVS Main JS
 
 // Global State
 let siteConfig, directorBios, serviceBenefits;
@@ -12,10 +12,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 email: "jvsacademyofficial@gmail.com",
                 address: "Visakhapatnam, Andhra Pradesh - 530022",
                 cin: "U85499AP2026PTC123692",
-                whatsappMsg: "Hello JVS Academy, I'm interested in your programs."
+                whatsappMsg: "Hello JVS, I'm interested in your programs."
             },
             social: {
-                instagram: "https://www.instagram.com/jvsacademyofficial/",
+                instagram: "https://www.instagram.com/jvs_officials/",
                 instagramLearnix: "https://www.instagram.com/jvs_learnix/"
             },
             stats: {
@@ -188,7 +188,7 @@ const renderCourses = () => {
     const keys = Object.keys(serviceBenefits);
 
     const html = keys.map(key => `
-        <button onclick="openServiceModal('${key}')" class="p-5 bg-white rounded-2xl border-2 border-slate-100 font-black text-primary hover:border-accent hover:shadow-xl transition-all">
+        <button onclick="openServiceModal('${key}')" class="p-3 bg-white/5 rounded-lg border border-white/10 font-semibold text-white text-xs hover:bg-white/10 hover:border-white/20 transition-colors">
             ${serviceBenefits[key].name}
         </button>
     `).join('');
@@ -234,9 +234,10 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('animate-fade-up');
             entry.target.style.opacity = '1';
+            observer.unobserve(entry.target);
         }
     });
-}, { threshold: 0.1 });
+}, { threshold: 0.05 });
 
 // Navbar scroll effect
 window.addEventListener('scroll', () => {

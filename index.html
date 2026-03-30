@@ -1,471 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JVS Academy | Best Online Learning, Placement Training & Business Services in India</title>
-    <meta name="description"
-        content="JVS Academy - India's trusted platform for academic excellence, placement training, and JVS Startix business services including registrations, web development, branding & more.">
-    <meta name="keywords"
-        content="JVS Academy, Online Learning, Placement Training, Career Development, Aptitude Training, Soft Skills, IT Training, Non-IT Training, India Education">
+    <title>JVS | Learning, Placements, Business & Celebrations | India</title>
+    <meta name="description" content="JVS - India's trusted platform for academics, placements, business services, celebrations & career growth.">
     <link rel="canonical" href="https://jvsacademy.com/">
-    <!-- Google Search Console Verification -->
-    <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE">
-
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jvsacademy.com/">
-    <meta property="og:title" content="JVS Academy | Empowering Careers with Knowledge">
-    <meta property="og:description"
-        content="Join JVS Academy for expert-led online learning and placement training programs. Bridging the gap between education and industry.">
+    <meta property="og:title" content="JVS | Empowering Careers with Knowledge">
     <meta property="og:image" content="https://jvsacademy.com/assets/images/og-image.jpg">
-
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://jvsacademy.com/">
-    <meta property="twitter:title" content="JVS Academy | Empowering Careers with Knowledge">
-    <meta property="twitter:description"
-        content="Expert-led online learning and placement training programs to accelerate your career growth.">
-    <meta property="twitter:image" content="https://jvsacademy.com/assets/images/og-image.jpg">
-
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/logo.png">
-    <!-- Tailwind CSS Play CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0A2647',
-                        secondary: '#144272',
-                        accent: '#205295',
-                        light: '#2C74B3',
-                    },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                    }
-                }
-            }
-        }
+        tailwind.config = { theme: { extend: { colors: { primary: '#0f172a', accent: '#6366f1', light: '#818cf8', soft: '#f8fafc', warm: '#f59e0b' } } } }
     </script>
     <link rel="stylesheet" href="css/index.css">
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+<body class="bg-white text-slate-700 font-sans overflow-x-hidden">
 
-<body class="bg-slate-50 text-slate-900 font-sans overflow-x-hidden">
-
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-primary shadow-xl">
+    <!-- Nav -->
+    <nav class="fixed top-0 w-full z-50 bg-slate-900/95 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center space-x-6">
-                    <a href="index.html"
-                        class="flex items-center space-x-3 group text-white border-r border-white/10 pr-6">
-                        <img src="assets/images/logo.png" alt="JVS Academy Logo"
-                            class="h-14 w-auto group-hover:scale-105 transition-transform duration-300">
+            <div class="flex justify-between items-center h-14">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="flex items-center text-white pr-4 border-r border-white/10">
+                        <img src="assets/images/logo.png" alt="JVS" class="h-9 md:h-10 w-auto" loading="eager">
                     </a>
-                    <!-- Mobile Contact Info (Near Logo) -->
-                    <div class="flex flex-col md:hidden justify-center space-y-1">
-                        <div
-                            class="flex items-center space-x-1 text-white text-[10px] sm:text-xs font-bold leading-none">
-                            <i data-lucide="phone" class="w-3 h-3 text-light"></i>
-                            <span class="conf-phone"></span>
-                        </div>
-                        <div class="flex items-center space-x-1 text-slate-300 text-[10px] sm:text-xs leading-none">
-                            <i data-lucide="mail" class="w-3 h-3 text-light"></i>
-                            <span class="conf-email truncate max-w-[140px]"></span>
-                        </div>
+                    <div class="flex flex-col md:hidden">
+                        <span class="flex items-center space-x-1 text-white text-[10px] font-semibold"><i data-lucide="phone" class="w-3 h-3 text-indigo-400"></i><span class="conf-phone"></span></span>
+                        <span class="flex items-center space-x-1 text-slate-400 text-[10px]"><i data-lucide="mail" class="w-3 h-3 text-indigo-400"></i><span class="conf-email truncate max-w-[130px]"></span></span>
                     </div>
-                    <div class="hidden lg:flex items-center space-x-6 text-sm">
-                        <div class="flex items-center space-x-2 text-slate-300">
-                            <i data-lucide="phone" class="w-4 h-4 text-light"></i>
-                            <span class="conf-phone"></span>
-                        </div>
-                        <div class="flex items-center space-x-2 text-slate-300">
-                            <i data-lucide="mail" class="w-4 h-4 text-light"></i>
-                            <span class="conf-email"></span>
-                        </div>
+                    <div class="hidden lg:flex items-center space-x-4 text-xs text-slate-400">
+                        <span class="flex items-center space-x-1.5"><i data-lucide="phone" class="w-3.5 h-3.5 text-indigo-400"></i><span class="conf-phone"></span></span>
+                        <span class="flex items-center space-x-1.5"><i data-lucide="mail" class="w-3.5 h-3.5 text-indigo-400"></i><span class="conf-email"></span></span>
                     </div>
                 </div>
-
-                <!-- Desktop Nav -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-white hover:text-light font-bold transition-colors">Home</a>
-                    <a href="services.html" class="text-slate-300 hover:text-white transition-colors">Services</a>
-                    <a href="about.html" class="text-slate-300 hover:text-white transition-colors">About Us</a>
-                    <a href="contact.html" class="text-slate-300 hover:text-white transition-colors">Contact Us</a>
-                    <a href="contact.html"
-                        class="bg-light hover:bg-white hover:text-primary text-white py-2 px-6 rounded-lg font-bold transition-all text-sm">Enroll
-                        Now</a>
+                <div class="hidden md:flex items-center space-x-5 text-sm">
+                    <a href="index.html" class="text-white font-semibold">Home</a>
+                    <a href="services.html" class="text-slate-400 hover:text-white transition-colors">Services</a>
+                    <a href="contact.html" class="text-slate-400 hover:text-white transition-colors">Contact</a>
+                    <a href="contact.html" class="bg-indigo-600 hover:bg-indigo-700 text-white py-1.5 px-4 rounded-lg font-semibold transition-all text-xs">Enroll Now</a>
                 </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-white hover:text-light focus:outline-none">
-                        <i data-lucide="menu" class="w-8 h-8"></i>
-                    </button>
-                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-white p-1"><i data-lucide="menu" class="w-6 h-6"></i></button>
             </div>
         </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-primary border-t border-white/10 animate-fade-in">
-            <div class="px-4 py-6 space-y-4">
-                <a href="index.html" class="block text-white font-bold">Home</a>
-                <a href="services.html" class="block text-slate-300 hover:text-white">Services</a>
-                <a href="about.html" class="block text-slate-300 hover:text-white">About Us</a>
-                <a href="contact.html" class="block text-slate-300 hover:text-white">Contact Us</a>
-                <a href="contact.html" class="block bg-light text-white text-center py-3 rounded-lg font-bold">Enroll
-                    Now</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-white/5">
+            <div class="px-4 py-4 space-y-2 text-sm">
+                <a href="index.html" class="block text-white font-semibold">Home</a>
+                <a href="services.html" class="block text-slate-400 hover:text-white">Services</a>
+                <a href="contact.html" class="block text-slate-400 hover:text-white">Contact</a>
+                <a href="contact.html" class="block bg-indigo-600 text-white text-center py-2 rounded-lg font-semibold mt-1">Enroll Now</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="pt-24 pb-8 md:pt-48 md:pb-32 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 overflow-hidden relative">
-        <!-- Animated background shapes -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
-            <div class="absolute top-20 left-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl animate-pulse"></div>
-            <div class="absolute bottom-10 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s"></div>
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-light/5 rounded-full blur-[100px]"></div>
-        </div>
+    <!-- Hero -->
+    <section class="pt-16 pb-6 md:pt-28 md:pb-16 bg-gradient-to-br from-slate-50 via-indigo-50/30 to-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="flex-1 text-center md:text-left animate-fade-in-up">
-                    <span class="inline-block px-4 py-2 bg-primary/10 text-primary text-sm font-bold rounded-full mb-6">🎓 India's Trusted Learning & Business Platform</span>
-                    <h1 class="text-4xl md:text-6xl font-extrabold text-primary leading-tight mb-6">
-                        Welcome to <br class="hidden md:block"><span class="bg-gradient-to-r from-accent to-light bg-clip-text text-transparent">JVS Academy</span>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="flex-1 text-center md:text-left">
+                    <span class="inline-block px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-bold rounded-full mb-4">🎓 India's Trusted Learning & Events Platform</span>
+                    <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-4">
+                        Welcome to <span class="text-indigo-600">JVS</span>
                     </h1>
-                    <p class="text-xl text-slate-600 mb-8 leading-relaxed max-w-2xl">
-                        Empowering Students with Knowledge, Skills & Career Opportunities. Your one-stop platform for
-                        academic excellence, placement training & business services.
+                    <p class="text-base text-slate-500 mb-6 max-w-lg">
+                        Your one-stop ecosystem — academic excellence, career placements, business services, and unforgettable celebrations.
                     </p>
-                    <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                        <button class="btn-primary">Enroll Now</button>
-                        <button class="btn-outline">Contact Us</button>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-3">
+                        <a href="contact.html" class="btn-primary">Get Started</a>
+                        <a href="services.html" class="btn-outline">Explore Services</a>
                     </div>
                 </div>
-                <div class="flex-1 relative animate-fade-in-up" style="animation-delay: 0.2s">
-                    <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 animate-float">
-                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                            alt="Students Learning" class="w-full h-auto">
+                <div class="flex-1 relative">
+                    <div class="rounded-2xl overflow-hidden shadow-lg animate-float">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=70" alt="Students" class="w-full h-auto" loading="eager" width="800" height="533">
                     </div>
-                    <!-- Decorative blobs -->
-                    <div class="absolute -top-10 -right-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl -z-10"></div>
-                    <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section Preview -->
-    <section class="py-12 md:py-24 bg-slate-50 overflow-hidden">
+    <!-- 4 Verticals with images -->
+    <section class="py-10 md:py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
-                <div class="flex-1 scroll-reveal">
-                    <h4 class="text-light uppercase tracking-widest text-sm font-bold mb-4">Who We Are</h4>
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-6">Empowering the Future of
-                        Professionals in India</h2>
-                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
-                        Versatile Stability Academy Private Limited is more than just an educational institution. We are
-                        a dedicated platform helping students bridge the gap between academic knowledge and industry
-                        requirements.
-                    </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10 text-primary font-bold">
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="target" class="text-accent w-6 h-6"></i>
-                            <span>Career-Ready Training</span>
+            <div class="text-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-2">Our Ecosystem</h2>
+                <p class="text-slate-400 text-sm">Four verticals. One powerful platform.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <!-- Learnix -->
+                <a href="services.html#learnix" class="group rounded-2xl overflow-hidden border border-slate-100 hover:shadow-xl transition-all duration-150 bg-white">
+                    <div class="h-36 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=400&q=60" alt="Academic Projects" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center"><i data-lucide="book-open" class="w-4 h-4"></i></span>
+                            <h3 class="font-bold text-slate-900">Learnix</h3>
                         </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="check-circle-2" class="text-accent w-6 h-6"></i>
-                            <span>Industry Experts</span>
+                        <p class="text-slate-400 text-xs leading-relaxed">Academic projects, research papers, source codes & placement training.</p>
+                    </div>
+                </a>
+                <!-- Startix -->
+                <a href="services.html#startix" class="group rounded-2xl overflow-hidden border border-slate-100 hover:shadow-xl transition-all duration-150 bg-white">
+                    <div class="h-36 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=400&q=60" alt="Business Services" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="w-8 h-8 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center"><i data-lucide="rocket" class="w-4 h-4"></i></span>
+                            <h3 class="font-bold text-slate-900">Startix</h3>
                         </div>
+                        <p class="text-slate-400 text-xs leading-relaxed">Business registrations, web development, branding & digital marketing.</p>
                     </div>
-                    <a href="about.html" class="btn-outline inline-flex items-center gap-2">
-                        View More About Us <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
-                </div>
-                <div class="flex-1 scroll-reveal" style="animation-delay: 0.2s">
-                    <div class="relative group">
-                        <div
-                            class="absolute -inset-4 bg-gradient-to-r from-primary to-accent rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-1000">
+                </a>
+                <!-- Sparkix -->
+                <a href="services.html#sparkix" class="group rounded-2xl overflow-hidden border border-slate-100 hover:shadow-xl transition-all duration-150 bg-white">
+                    <div class="h-36 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=400&q=60" alt="Celebrations" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="w-8 h-8 bg-pink-100 text-pink-600 rounded-lg flex items-center justify-center"><i data-lucide="party-popper" class="w-4 h-4"></i></span>
+                            <h3 class="font-bold text-slate-900">Sparkix</h3>
                         </div>
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Team Collaboration" class="relative rounded-2xl shadow-2xl w-full h-auto">
+                        <p class="text-slate-400 text-xs leading-relaxed">Celebrations, surprise parties, photo shoots, gifting & event planning.</p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Preview Section -->
-    <section class="py-12 md:py-24 bg-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-10 md:mb-16 scroll-reveal">
-                <h4 class="text-light uppercase tracking-widest text-sm font-bold mb-4">Our Expertise</h4>
-                <h2 class="text-3xl md:text-5xl font-extrabold text-primary">Everything you need to succeed</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8 mb-10 md:mb-16">
-                <!-- Academic Projects Preview -->
-                <div
-                    class="scroll-reveal group p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:border-accent transition-all duration-300">
-                    <div
-                        class="w-16 h-16 bg-white text-primary rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary group-hover:text-white transition-colors">
-                        <i data-lucide="book-open" class="w-8 h-8"></i>
+                </a>
+                <!-- Growix -->
+                <a href="services.html#growix" class="group rounded-2xl overflow-hidden border border-slate-100 hover:shadow-xl transition-all duration-150 bg-white">
+                    <div class="h-36 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=400&q=60" alt="Career Growth" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-4">Academic Project Hub</h3>
-                    <p class="text-slate-600 mb-6 font-medium italic">"Turning your ideas into successful academic
-                        projects."</p>
-                    <p class="text-slate-500 mb-8">End-to-end support for all UG & PG courses including research papers
-                        and live source codes.</p>
-                    <a href="services.html"
-                        class="text-accent font-bold flex items-center gap-2 hover:gap-4 transition-all">
-                        Full Course List <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
-                </div>
-
-                <!-- Placement Training Preview -->
-                <div class="scroll-reveal group p-8 bg-primary text-white rounded-3xl shadow-xl transition-all duration-300 hover:scale-[1.02]"
-                    style="animation-delay: 0.2s">
-                    <div
-                        class="w-16 h-16 bg-white/10 text-white rounded-2xl flex items-center justify-center mb-6 backdrop-blur-md">
-                        <i data-lucide="briefcase" class="w-8 h-8"></i>
+                    <div class="p-5">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="w-8 h-8 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center"><i data-lucide="trending-up" class="w-4 h-4"></i></span>
+                            <h3 class="font-bold text-slate-900">Growix</h3>
+                        </div>
+                        <p class="text-slate-400 text-xs leading-relaxed">Placement support, career counseling, resume building & job connections.</p>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Placement Training</h3>
-                    <p class="text-slate-300 mb-6">Comprehensive 6-month intensive programs designed to make you
-                        job-ready for IT and Non-IT roles across India.</p>
-                    <ul class="space-y-3 mb-8 text-sm">
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-light"></i>
-                            Aptitude & Soft Skills</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-light"></i>
-                            Technical Specialized Courses</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-light"></i> 100%
-                            Placement Support</li>
-                    </ul>
-                    <a href="services.html"
-                        class="bg-white text-primary px-6 py-3 rounded-xl font-bold text-sm inline-block hover:bg-light hover:text-white transition-all">
-                        Enroll in Placement Training
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- JVS Startix Services Preview -->
-    <section class="py-12 md:py-24 bg-gradient-to-br from-slate-900 via-primary to-secondary text-white relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-accent/20 rounded-full blur-[120px] -mr-48 -mt-48"></div>
-        <div class="absolute bottom-0 left-0 w-80 h-80 bg-light/10 rounded-full blur-[100px] -ml-40 -mb-40"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-10 md:mb-16 scroll-reveal">
-                <span class="inline-block px-5 py-2 bg-white/10 backdrop-blur-md text-white text-sm font-bold rounded-full mb-4 border border-white/20">
-                    🚀 JVS Startix
-                </span>
-                <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Business & Startup Services</h2>
-                <p class="text-slate-300 max-w-2xl mx-auto">Launch, brand, and grow your business with our comprehensive suite of startup services.</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="scroll-reveal group bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all duration-300">
-                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center mb-4">
-                        <i data-lucide="building-2" class="w-6 h-6 text-white"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">Business Registrations</h3>
-                    <p class="text-slate-400 text-sm">Proprietor, LLP, OPC, Pvt Ltd, MSME, FSSAI, GST & more</p>
-                </div>
-                <div class="scroll-reveal group bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all duration-300" style="animation-delay:0.1s">
-                    <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-xl flex items-center justify-center mb-4">
-                        <i data-lucide="monitor" class="w-6 h-6 text-white"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">Website Design & Development</h3>
-                    <p class="text-slate-400 text-sm">Modern, responsive websites for your brand</p>
-                </div>
-                <div class="scroll-reveal group bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all duration-300" style="animation-delay:0.2s">
-                    <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-purple-500 rounded-xl flex items-center justify-center mb-4">
-                        <i data-lucide="palette" class="w-6 h-6 text-white"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">Logo & Branding</h3>
-                    <p class="text-slate-400 text-sm">Professional identity & brand design</p>
-                </div>
-                <div class="scroll-reveal group bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all duration-300" style="animation-delay:0.3s">
-                    <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl flex items-center justify-center mb-4">
-                        <i data-lucide="megaphone" class="w-6 h-6 text-white"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">Digital Marketing</h3>
-                    <p class="text-slate-400 text-sm">SEO, social media & growth strategy</p>
-                </div>
-                <div class="scroll-reveal group bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all duration-300" style="animation-delay:0.4s">
-                    <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-red-500 rounded-xl flex items-center justify-center mb-4">
-                        <i data-lucide="book-open" class="w-6 h-6 text-white"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">ISBN & Publishing</h3>
-                    <p class="text-slate-400 text-sm">Author book publishing support</p>
-                </div>
-                <div class="scroll-reveal group bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all duration-300" style="animation-delay:0.5s">
-                    <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-xl flex items-center justify-center mb-4">
-                        <i data-lucide="shield-check" class="w-6 h-6 text-white"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">Trademark & Copyright</h3>
-                    <p class="text-slate-400 text-sm">IP protection & legal registration</p>
-                </div>
-            </div>
-
-            <div class="mt-10 text-center scroll-reveal">
-                <a href="services.html" class="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-xl font-bold hover:bg-light hover:text-white transition-all shadow-2xl">
-                    Explore All Startix Services <i data-lucide="arrow-right" class="w-5 h-5"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Preview Section -->
-    <section class="py-12 md:py-24 bg-slate-900 text-white relative">
+    <!-- About brief -->
+    <section class="py-10 md:py-16 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row gap-8 md:gap-16 items-center">
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                 <div class="flex-1 scroll-reveal">
-                    <h2 class="text-4xl font-extrabold mb-6 leading-tight">Ready to Start Your Career Journey?</h2>
-                    <p class="text-slate-400 text-lg mb-8">Fill out the enquiry form and our career experts will reach
-                        out to you within 24 hours.</p>
-
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4 p-4 bg-white/5 rounded-2xl border border-white/10">
-                            <div class="w-12 h-12 bg-light/20 rounded-full flex items-center justify-center">
-                                <i data-lucide="phone" class="w-6 h-6 text-light"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-slate-500 font-bold uppercase tracking-widest">Call us directly
-                                </p>
-                                <p class="text-lg font-bold conf-phone"></p>
-                            </div>
-                        </div>
+                    <span class="text-indigo-600 uppercase tracking-widest text-[10px] font-bold mb-2 block">Who We Are</span>
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4">Versatile Stability Academy</h2>
+                    <p class="text-slate-500 text-sm mb-5 leading-relaxed">A dedicated ecosystem of 4 powerful verticals — <strong class="text-slate-700">Learnix</strong>, <strong class="text-slate-700">Startix</strong>, <strong class="text-slate-700">Sparkix</strong> & <strong class="text-slate-700">Growix</strong> — bridging the gap between knowledge and industry requirements across India.</p>
+                    <div class="grid grid-cols-2 gap-2 text-xs font-semibold text-slate-700">
+                        <span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="text-indigo-500 w-4 h-4"></i>Career-Ready Training</span>
+                        <span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="text-indigo-500 w-4 h-4"></i>Industry Experts</span>
+                        <span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="text-indigo-500 w-4 h-4"></i>End-to-End Support</span>
+                        <span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="text-indigo-500 w-4 h-4"></i>Trusted by 1,500+</span>
                     </div>
                 </div>
-
-                <div class="flex-1 w-full scroll-reveal" style="animation-delay: 0.2s">
-                    <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl text-slate-900 border border-slate-100">
-                        <h3 class="text-2xl font-bold text-primary mb-8">Enquire Now</h3>
-                        <form id="contact-form" class="space-y-6">
-                            <div class="space-y-2">
-                                <label class="text-xs font-bold text-slate-400 uppercase tracking-widest">Full
-                                    Name</label>
-                                <input type="text" id="name" placeholder="Name" required
-                                    class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary outline-none transition-all">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-xs font-bold text-slate-400 uppercase tracking-widest">Phone
-                                    Number</label>
-                                <input type="tel" id="user-phone" placeholder="+91 00000 00000" required
-                                    class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary outline-none transition-all">
-                            </div>
-                            <div class="space-y-2">
-                                <label
-                                    class="text-xs font-bold text-slate-400 uppercase tracking-widest">Interest</label>
-                                <select id="interest"
-                                    class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary outline-none transition-all cursor-pointer">
-                                    <option>Academic Projects (Learnix)</option>
-                                    <option>Placement Training (Learnix)</option>
-                                    <option>Skill Development (Learnix)</option>
-                                    <option>Business Registration (Startix)</option>
-                                    <option>Website Design & Development (Startix)</option>
-                                    <option>Logo & Branding (Startix)</option>
-                                    <option>Digital Marketing (Startix)</option>
-                                    <option>Book ISBN & Publishing (Startix)</option>
-                                    <option>Trademark & Copyright (Startix)</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="w-full btn-primary py-4 text-lg">Send Enquiry</button>
-                        </form>
-                        <div class="mt-8 text-center">
-                            <a href="contact.html" class="text-primary font-bold hover:underline">Full Contact
-                                Details</a>
-                        </div>
-                    </div>
+                <div class="flex-1 scroll-reveal">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=65" alt="Team" class="rounded-xl shadow-md w-full" loading="lazy" width="600" height="400">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Floating WhatsApp -->
-    <a href="#" target="_blank" class="floating-whatsapp conf-whatsapp-link">
-        <svg viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10">
-            <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.396.015 12.03c0 2.12.553 4.189 1.606 6.06L0 24l6.117-1.605a11.803 11.803 0 005.925 1.577h.005c6.632 0 12.028-5.398 12.03-12.03a11.85 11.85 0 00-3.486-8.507z" />
-        </svg>
+    <!-- Quick Enquiry -->
+    <section class="py-10 md:py-16 bg-slate-900 text-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-8 items-center">
+                <div class="flex-1">
+                    <h2 class="text-2xl font-extrabold mb-3">Ready to Get Started?</h2>
+                    <p class="text-slate-400 text-sm mb-4">Whether it's academics, placements, business, or celebrations — our team responds within 24 hours.</p>
+                    <div class="flex items-center gap-3 p-3 bg-white/5 rounded-lg border border-white/5 w-fit">
+                        <i data-lucide="phone" class="w-5 h-5 text-indigo-400"></i>
+                        <span class="font-bold text-sm conf-phone"></span>
+                    </div>
+                </div>
+                <div class="flex-1 w-full">
+                    <form id="contact-form" class="bg-white p-6 rounded-xl text-slate-800 space-y-3 shadow-lg">
+                        <h3 class="font-bold text-slate-900 text-lg mb-1">Quick Enquiry</h3>
+                        <input type="text" id="name" placeholder="Full Name" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm outline-none focus:ring-2 focus:ring-indigo-500">
+                        <input type="tel" id="user-phone" placeholder="+91 00000 00000" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm outline-none focus:ring-2 focus:ring-indigo-500">
+                        <select id="interest" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer">
+                            <optgroup label="Learnix">
+                                <option>Academic Projects (Learnix)</option>
+                                <option>Placement Training (Learnix)</option>
+                                <option>Skill Development (Learnix)</option>
+                            </optgroup>
+                            <optgroup label="Startix">
+                                <option>Business Registration (Startix)</option>
+                                <option>Website Design (Startix)</option>
+                                <option>Logo & Branding (Startix)</option>
+                                <option>Digital Marketing (Startix)</option>
+                            </optgroup>
+                            <optgroup label="Sparkix">
+                                <option>Event Planning (Sparkix)</option>
+                                <option>Surprise Parties (Sparkix)</option>
+                                <option>Photo Shoots (Sparkix)</option>
+                                <option>Unique Gifting (Sparkix)</option>
+                            </optgroup>
+                            <optgroup label="Growix">
+                                <option>Placement Support (Growix)</option>
+                                <option>Career Counseling (Growix)</option>
+                                <option>Resume Building (Growix)</option>
+                            </optgroup>
+                        </select>
+                        <button type="submit" class="w-full btn-primary py-2.5">Send Enquiry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp -->
+    <a href="#" target="_blank" class="floating-whatsapp conf-whatsapp-link" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.396.015 12.03c0 2.12.553 4.189 1.606 6.06L0 24l6.117-1.605a11.803 11.803 0 005.925 1.577h.005c6.632 0 12.028-5.398 12.03-12.03a11.85 11.85 0 00-3.486-8.507z"/></svg>
     </a>
 
-    <footer class="bg-primary text-white pt-20 pb-10">
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white pt-12 pb-6">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center space-x-3 mb-6">
-                        <img src="assets/images/logo.png" alt="JVS Academy Logo" class="h-16 w-auto">
-                    </div>
-                    <p class="text-slate-300 max-w-md leading-relaxed">
-                        Versatile Stability Academy Private Limited is committed to building confident, skilled, and
-                        employable professionals across India through quality education and practical training.
-                    </p>
-                    <div class="mt-8 space-y-4">
-                        <a href="https://www.instagram.com/jvsacademyofficial/" target="_blank"
-                            class="inline-flex items-center space-x-2 bg-white/10 px-4 py-2 rounded-lg hover:bg-light transition-colors group">
-                            <i data-lucide="instagram" class="w-5 h-5 text-white"></i>
-                            <span class="font-bold text-sm">jvsacademyofficial</span>
-                        </a>
-                        <a href="https://www.instagram.com/jvs_learnix/" target="_blank"
-                            class="inline-flex items-center space-x-2 bg-white/10 px-4 py-2 rounded-lg hover:bg-light transition-colors group">
-                            <i data-lucide="instagram" class="w-5 h-5 text-white"></i>
-                            <span class="font-bold text-sm">jvs_learnix <span class="text-slate-400 font-normal">(Learnix)</span></span>
-                        </a>
-                        <a href="https://www.instagram.com/startixofficial/" target="_blank"
-                            class="inline-flex items-center space-x-2 bg-white/10 px-4 py-2 rounded-lg hover:bg-light transition-colors group">
-                            <i data-lucide="instagram" class="w-5 h-5 text-white"></i>
-                            <span class="font-bold text-sm">startixofficial <span class="text-slate-400 font-normal">(Startix)</span></span>
-                        </a>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <img src="assets/images/logo.png" alt="JVS" class="h-10 mb-3" loading="lazy">
+                    <p class="text-slate-400 text-xs max-w-sm leading-relaxed">Versatile Stability Academy Private Limited — powering careers, businesses & celebrations across India.</p>
+                    <div class="mt-4 flex flex-wrap gap-1.5">
+                        <a href="https://www.instagram.com/jvs_officials/" target="_blank" class="bg-white/5 px-2.5 py-1 rounded text-[10px] font-semibold hover:bg-white/10 transition-colors"><i data-lucide="instagram" class="w-3 h-3 inline mr-1"></i>jvs_officials</a>
+                        <a href="https://www.instagram.com/jvs_learnix/" target="_blank" class="bg-white/5 px-2.5 py-1 rounded text-[10px] font-semibold hover:bg-white/10 transition-colors"><i data-lucide="instagram" class="w-3 h-3 inline mr-1"></i>jvs_learnix</a>
+                        <a href="https://www.instagram.com/startixofficials/" target="_blank" class="bg-white/5 px-2.5 py-1 rounded text-[10px] font-semibold hover:bg-white/10 transition-colors"><i data-lucide="instagram" class="w-3 h-3 inline mr-1"></i>startixofficials</a>
+                        <a href="https://www.instagram.com/sparkixofficials/" target="_blank" class="bg-white/5 px-2.5 py-1 rounded text-[10px] font-semibold hover:bg-white/10 transition-colors"><i data-lucide="instagram" class="w-3 h-3 inline mr-1"></i>sparkixofficials</a>
+                        <a href="https://www.instagram.com/growixofficials/" target="_blank" class="bg-white/5 px-2.5 py-1 rounded text-[10px] font-semibold hover:bg-white/10 transition-colors"><i data-lucide="instagram" class="w-3 h-3 inline mr-1"></i>growixofficials</a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold mb-6 border-b border-white/10 pb-2 inline-block">Quick Links</h4>
-                    <ul class="space-y-4 text-slate-400">
-                        <li><a href="index.html" class="hover:text-light transition-colors">Home</a></li>
-                        <li><a href="services.html" class="hover:text-light transition-colors">Services</a></li>
-                        <li><a href="about.html" class="hover:text-light transition-colors">About Us</a></li>
-                        <li><a href="contact.html" class="hover:text-light transition-colors">Contact Us</a></li>
+                    <h4 class="text-xs font-bold mb-3 text-slate-300">Links</h4>
+                    <ul class="space-y-1.5 text-slate-500 text-xs">
+                        <li><a href="index.html" class="hover:text-indigo-400 transition-colors">Home</a></li>
+                        <li><a href="services.html" class="hover:text-indigo-400 transition-colors">Services</a></li>
+                        <li><a href="contact.html" class="hover:text-indigo-400 transition-colors">Contact</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold mb-6 border-b border-white/10 pb-2 inline-block">Contact Info</h4>
-                    <ul class="space-y-4 text-slate-400">
-                        <li class="flex items-start space-x-3">
-                            <i data-lucide="map-pin" class="w-5 h-5 text-light shrink-0"></i>
-                            <span class="conf-address"></span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <i data-lucide="phone" class="w-5 h-5 text-light"></i>
-                            <span class="conf-phone"></span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <i data-lucide="mail" class="w-5 h-5 text-light"></i>
-                            <span class="conf-email"></span>
-                        </li>
+                    <h4 class="text-xs font-bold mb-3 text-slate-300">Contact</h4>
+                    <ul class="space-y-1.5 text-slate-500 text-xs">
+                        <li class="flex items-start gap-1.5"><i data-lucide="map-pin" class="w-3 h-3 text-indigo-400 shrink-0 mt-0.5"></i><span class="conf-address"></span></li>
+                        <li class="flex items-center gap-1.5"><i data-lucide="phone" class="w-3 h-3 text-indigo-400"></i><span class="conf-phone"></span></li>
+                        <li class="flex items-center gap-1.5"><i data-lucide="mail" class="w-3 h-3 text-indigo-400"></i><span class="conf-email"></span></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-white/10 pt-8 text-center text-slate-500 text-sm">
+            <div class="border-t border-white/5 pt-4 text-center text-slate-600 text-[10px]">
                 <div class="conf-company-copyright"></div>
-                <div class="mt-4 flex justify-center space-x-6">
-                    <a href="terms.html"
-                        class="hover:text-white transition-colors font-bold uppercase tracking-wider text-xs">Terms &
-                        Conditions</a>
-                    <a href="policy.html"
-                        class="hover:text-white transition-colors font-bold uppercase tracking-wider text-xs">Privacy
-                        Policy</a>
-                </div>
-                <div class="mt-4 text-xs font-bold uppercase tracking-wider text-slate-400">
-                    Made with <span class="text-red-400">❤️</span> by JVS Startix
-                </div>
+                <div class="mt-1 space-x-3"><a href="terms.html" class="hover:text-white">Terms</a><a href="policy.html" class="hover:text-white">Privacy</a></div>
+                <div class="mt-1 text-slate-700">Made with ❤️ by JVS Startix</div>
             </div>
         </div>
     </footer>
@@ -473,10 +265,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/supabase-config.js"></script>
     <script src="js/main.js"></script>
-    <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
-    </script>
+    <script>lucide.createIcons();</script>
 </body>
-
 </html>
+
