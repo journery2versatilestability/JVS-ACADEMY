@@ -7,310 +7,183 @@
     <meta name="description" content="Explore JVS Academy's 4 verticals: Learnix (academics), Startix (business), Sparkix (celebrations) & Growix (placements).">
     <link rel="canonical" href="https://jvsacademy.com/services.html">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="JVS Academy Services | Learnix, Startix, Sparkix, Growix">
+    <meta property="og:title" content="JVS Academy Services">
     <meta property="og:image" content="https://jvsacademy.com/assets/images/og-image.jpg">
-    <meta property="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/png" href="assets/images/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = { theme: { extend: { colors: { primary: '#1e3a5f', secondary: '#2d5f8a', accent: '#4a90d9', light: '#6bb3f0', soft: '#f0f4f8' } } } }
-    </script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#0f172a',accent:'#6366f1',light:'#818cf8',warm:'#f59e0b'}}}}</script>
     <link rel="stylesheet" href="css/index.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-soft text-slate-800 font-sans overflow-x-hidden">
+<body class="bg-white text-slate-700 font-sans overflow-x-hidden">
 
     <!-- Nav -->
-    <nav class="fixed top-0 w-full z-50 bg-primary/95 backdrop-blur-md shadow-sm">
+    <nav class="fixed top-0 w-full z-50 bg-slate-900/95 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-5">
-                    <a href="index.html" class="flex items-center group text-white pr-5 border-r border-white/10"><img src="assets/images/logo.png" alt="JVS Academy" class="h-10 md:h-12 w-auto" loading="eager"></a>
-                    <div class="flex flex-col md:hidden space-y-0.5">
-                        <div class="flex items-center space-x-1 text-white text-[10px] sm:text-xs font-semibold leading-none"><i data-lucide="phone" class="w-3 h-3 text-light"></i><span class="conf-phone"></span></div>
-                        <div class="flex items-center space-x-1 text-blue-200 text-[10px] sm:text-xs leading-none"><i data-lucide="mail" class="w-3 h-3 text-light"></i><span class="conf-email truncate max-w-[140px]"></span></div>
+            <div class="flex justify-between items-center h-14">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="flex items-center text-white pr-4 border-r border-white/10"><img src="assets/images/logo.png" alt="JVS Academy" class="h-9 md:h-10 w-auto" loading="eager"></a>
+                    <div class="flex flex-col md:hidden">
+                        <span class="flex items-center space-x-1 text-white text-[10px] font-semibold"><i data-lucide="phone" class="w-3 h-3 text-indigo-400"></i><span class="conf-phone"></span></span>
+                        <span class="flex items-center space-x-1 text-slate-400 text-[10px]"><i data-lucide="mail" class="w-3 h-3 text-indigo-400"></i><span class="conf-email truncate max-w-[130px]"></span></span>
                     </div>
-                    <div class="hidden lg:flex items-center space-x-5 text-sm text-blue-200">
-                        <div class="flex items-center space-x-2"><i data-lucide="phone" class="w-4 h-4 text-light"></i><span class="conf-phone"></span></div>
-                        <div class="flex items-center space-x-2"><i data-lucide="mail" class="w-4 h-4 text-light"></i><span class="conf-email"></span></div>
+                    <div class="hidden lg:flex items-center space-x-4 text-xs text-slate-400">
+                        <span class="flex items-center space-x-1.5"><i data-lucide="phone" class="w-3.5 h-3.5 text-indigo-400"></i><span class="conf-phone"></span></span>
+                        <span class="flex items-center space-x-1.5"><i data-lucide="mail" class="w-3.5 h-3.5 text-indigo-400"></i><span class="conf-email"></span></span>
                     </div>
                 </div>
-                <div class="hidden md:flex items-center space-x-6 text-sm">
-                    <a href="index.html" class="text-blue-200 hover:text-white transition-colors">Home</a>
+                <div class="hidden md:flex items-center space-x-5 text-sm">
+                    <a href="index.html" class="text-slate-400 hover:text-white transition-colors">Home</a>
                     <a href="services.html" class="text-white font-semibold">Services</a>
-                    <a href="contact.html" class="text-blue-200 hover:text-white transition-colors">Contact</a>
-                    <a href="contact.html" class="bg-light hover:bg-white hover:text-primary text-white py-2 px-5 rounded-lg font-semibold transition-all">Enroll Now</a>
+                    <a href="contact.html" class="text-slate-400 hover:text-white transition-colors">Contact</a>
+                    <a href="contact.html" class="bg-indigo-600 hover:bg-indigo-700 text-white py-1.5 px-4 rounded-lg font-semibold text-xs transition-all">Enroll Now</a>
                 </div>
-                <div class="md:hidden"><button id="mobile-menu-btn" class="text-white p-1"><i data-lucide="menu" class="w-7 h-7"></i></button></div>
+                <button id="mobile-menu-btn" class="md:hidden text-white p-1"><i data-lucide="menu" class="w-6 h-6"></i></button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-primary border-t border-white/10">
-            <div class="px-4 py-5 space-y-3 text-sm">
-                <a href="index.html" class="block text-blue-200 hover:text-white">Home</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-white/5">
+            <div class="px-4 py-4 space-y-2 text-sm">
+                <a href="index.html" class="block text-slate-400 hover:text-white">Home</a>
                 <a href="services.html" class="block text-white font-semibold">Services</a>
-                <a href="contact.html" class="block text-blue-200 hover:text-white">Contact</a>
-                <a href="contact.html" class="block bg-light text-white text-center py-2.5 rounded-lg font-semibold">Enroll Now</a>
+                <a href="contact.html" class="block text-slate-400 hover:text-white">Contact</a>
+                <a href="contact.html" class="block bg-indigo-600 text-white text-center py-2 rounded-lg font-semibold mt-1">Enroll Now</a>
             </div>
         </div>
     </nav>
 
     <!-- Header -->
-    <header class="pt-20 pb-10 md:pt-28 md:pb-14 bg-gradient-to-br from-primary via-secondary to-accent text-white text-center relative overflow-hidden">
-        <div class="absolute inset-0 pointer-events-none"><div class="absolute top-10 right-20 w-48 h-48 bg-white/5 rounded-full blur-2xl"></div></div>
-        <div class="max-w-7xl mx-auto px-4 relative z-10">
-            <h1 class="text-3xl md:text-5xl font-extrabold mb-3">Our Services</h1>
-            <p class="text-lg text-blue-200 max-w-2xl mx-auto">Four verticals. One complete ecosystem for your success.</p>
-            <!-- Quick Jump -->
-            <div class="mt-6 flex flex-wrap justify-center gap-2">
-                <a href="#learnix" class="px-4 py-1.5 bg-white/10 rounded-full text-xs font-semibold border border-white/15 hover:bg-white/20 transition-colors">📚 Learnix</a>
-                <a href="#startix" class="px-4 py-1.5 bg-white/10 rounded-full text-xs font-semibold border border-white/15 hover:bg-white/20 transition-colors">🚀 Startix</a>
-                <a href="#sparkix" class="px-4 py-1.5 bg-white/10 rounded-full text-xs font-semibold border border-white/15 hover:bg-white/20 transition-colors">🎉 Sparkix</a>
-                <a href="#growix" class="px-4 py-1.5 bg-white/10 rounded-full text-xs font-semibold border border-white/15 hover:bg-white/20 transition-colors">📈 Growix</a>
+    <header class="pt-16 pb-8 md:pt-24 md:pb-12 bg-slate-900 text-white text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <h1 class="text-3xl md:text-4xl font-extrabold mb-2">Our Services</h1>
+            <p class="text-slate-400 text-sm mb-5">Four verticals. One complete ecosystem.</p>
+            <div class="flex flex-wrap justify-center gap-2">
+                <a href="#learnix" class="px-3 py-1 bg-indigo-600/20 rounded-full text-xs font-semibold text-indigo-300 border border-indigo-500/30 hover:bg-indigo-600/40 transition-colors">📚 Learnix</a>
+                <a href="#startix" class="px-3 py-1 bg-amber-600/20 rounded-full text-xs font-semibold text-amber-300 border border-amber-500/30 hover:bg-amber-600/40 transition-colors">🚀 Startix</a>
+                <a href="#sparkix" class="px-3 py-1 bg-pink-600/20 rounded-full text-xs font-semibold text-pink-300 border border-pink-500/30 hover:bg-pink-600/40 transition-colors">🎉 Sparkix</a>
+                <a href="#growix" class="px-3 py-1 bg-emerald-600/20 rounded-full text-xs font-semibold text-emerald-300 border border-emerald-500/30 hover:bg-emerald-600/40 transition-colors">📈 Growix</a>
             </div>
         </div>
     </header>
 
-    <!-- ========== 1. LEARNIX — Academics ========== -->
-    <section id="learnix" class="py-10 md:py-20 bg-gradient-to-br from-slate-800 via-slate-700 to-primary text-white relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-56 h-56 bg-accent/10 rounded-full blur-[80px] -mr-28 -mt-28"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-10 scroll-reveal">
-                <span class="inline-block px-4 py-1.5 bg-white/10 text-white text-sm font-semibold rounded-full mb-3 border border-white/15">📚 JVS Learnix</span>
-                <h2 class="text-2xl md:text-4xl font-extrabold mb-3">Academic Project Hub</h2>
-                <p class="text-blue-200 max-w-2xl mx-auto text-sm">Turning your ideas into successful academic projects — all UG & PG courses under one roof.</p>
+    <!-- 1. LEARNIX -->
+    <section id="learnix" class="py-10 md:py-16 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center gap-3 mb-6"><span class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center"><i data-lucide="book-open" class="w-5 h-5"></i></span><h2 class="text-2xl font-extrabold">JVS Learnix</h2></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                <div class="bg-white/5 p-5 rounded-xl border border-white/10 hover:bg-white/8 transition-colors"><div class="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center mb-3"><i data-lucide="file-text" class="w-5 h-5 text-indigo-400"></i></div><h3 class="font-bold text-sm mb-1">Project Reports</h3><p class="text-slate-400 text-xs">BA, MA, BBA, MBA, BCA, MCA, BTech & MTech.</p></div>
+                <div class="bg-white/5 p-5 rounded-xl border border-white/10 hover:bg-white/8 transition-colors"><div class="w-10 h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center mb-3"><i data-lucide="code" class="w-5 h-5 text-emerald-400"></i></div><h3 class="font-bold text-sm mb-1">Live Source Codes</h3><p class="text-slate-400 text-xs">Working code with deployment support.</p></div>
+                <div class="bg-white/5 p-5 rounded-xl border border-white/10 hover:bg-white/8 transition-colors"><div class="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center mb-3"><i data-lucide="presentation" class="w-5 h-5 text-orange-400"></i></div><h3 class="font-bold text-sm mb-1">PPTs & Research</h3><p class="text-slate-400 text-xs">Presentations, papers & publication support.</p></div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                <div class="scroll-reveal bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-white/25 hover:bg-white/8 transition-all duration-200">
-                    <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-xl flex items-center justify-center mb-4"><i data-lucide="file-text" class="w-6 h-6 text-white"></i></div>
-                    <h3 class="text-lg font-bold mb-2">Project Reports</h3>
-                    <p class="text-blue-200/70 text-sm">Professionally structured reports for BA, MA, BBA, MBA, BCA, MCA, BTech & MTech.</p>
-                </div>
-                <div class="scroll-reveal bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-white/25 hover:bg-white/8 transition-all duration-200">
-                    <div class="w-12 h-12 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-xl flex items-center justify-center mb-4"><i data-lucide="code" class="w-6 h-6 text-white"></i></div>
-                    <h3 class="text-lg font-bold mb-2">Live Source Codes</h3>
-                    <p class="text-blue-200/70 text-sm">Working, documented source code with deployment support.</p>
-                </div>
-                <div class="scroll-reveal bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-white/25 hover:bg-white/8 transition-all duration-200">
-                    <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-500 rounded-xl flex items-center justify-center mb-4"><i data-lucide="presentation" class="w-6 h-6 text-white"></i></div>
-                    <h3 class="text-lg font-bold mb-2">PPTs & Research</h3>
-                    <p class="text-blue-200/70 text-sm">Presentations, research papers, and publication support for journals.</p>
-                </div>
-            </div>
-            <!-- Skill Development Courses -->
-            <div class="mt-10">
-                <h3 class="text-xl font-bold text-center mb-6">Skill Development Courses</h3>
-                <div id="courses-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"></div>
-            </div>
-            <!-- Placement Training Brief -->
-            <div class="mt-10 bg-white/5 p-6 rounded-2xl border border-white/10">
-                <div class="flex flex-col md:flex-row items-center gap-6">
-                    <div class="flex-1">
-                        <h3 class="text-xl font-bold mb-2">Placement Training Program</h3>
-                        <p class="text-blue-200 text-sm mb-3">Comprehensive <span class="conf-training-duration font-bold"></span> intensive program — Aptitude (30d) + Soft Skills (30d) + IT/Non-IT Course (90d) + Placement Assistance (30d).</p>
-                        <p class="text-blue-200/60 text-xs">Also available: Standalone 2-month Soft Skills Training.</p>
-                    </div>
-                    <a href="contact.html" class="bg-white text-primary px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-light hover:text-white transition-all shrink-0">Enroll Now</a>
-                </div>
+            <h3 class="font-bold text-sm mb-3">Skill Development Courses</h3>
+            <div id="courses-grid" class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-6"></div>
+            <div class="bg-white/5 p-5 rounded-xl border border-white/10 flex flex-col md:flex-row items-center gap-4">
+                <div class="flex-1"><h3 class="font-bold mb-1">Placement Training <span class="conf-training-duration text-indigo-400 text-xs font-normal"></span></h3><p class="text-slate-400 text-xs">Aptitude (30d) + Soft Skills (30d) + IT/Non-IT (90d) + Placement (30d). Also: 2-month Soft Skills standalone.</p></div>
+                <a href="contact.html" class="bg-indigo-600 text-white px-5 py-2 rounded-lg text-xs font-semibold shrink-0 hover:bg-indigo-700 transition-colors">Enroll Now</a>
             </div>
         </div>
     </section>
 
-    <!-- ========== 2. STARTIX — Business ========== -->
-    <section id="startix" class="py-10 md:py-20 bg-gradient-to-br from-primary via-secondary to-accent text-white relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-56 h-56 bg-white/5 rounded-full blur-[80px] -ml-28 -mt-28"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-10 scroll-reveal">
-                <span class="inline-block px-4 py-1.5 bg-white/10 text-white text-sm font-semibold rounded-full mb-3 border border-white/15">🚀 JVS Startix</span>
-                <h2 class="text-2xl md:text-4xl font-extrabold mb-3">Business & Startup Services</h2>
-                <p class="text-blue-200 max-w-2xl mx-auto text-sm">End-to-end business solutions to launch, brand, and grow your venture.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                <div class="scroll-reveal bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-white/25 hover:bg-white/8 transition-all duration-200">
-                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center mb-4"><i data-lucide="building-2" class="w-6 h-6 text-white"></i></div>
-                    <h3 class="font-bold text-lg mb-2">Business Registrations</h3>
-                    <p class="text-blue-200/70 text-sm mb-3">Complete registration support for all types.</p>
-                    <div class="flex flex-wrap gap-1.5"><span class="text-[10px] bg-white/10 px-2 py-0.5 rounded-full font-bold">Proprietor</span><span class="text-[10px] bg-white/10 px-2 py-0.5 rounded-full font-bold">LLP</span><span class="text-[10px] bg-white/10 px-2 py-0.5 rounded-full font-bold">OPC</span><span class="text-[10px] bg-white/10 px-2 py-0.5 rounded-full font-bold">Pvt Ltd</span><span class="text-[10px] bg-white/10 px-2 py-0.5 rounded-full font-bold">MSME</span><span class="text-[10px] bg-white/10 px-2 py-0.5 rounded-full font-bold">GST</span></div>
-                </div>
-                <div class="scroll-reveal bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-white/25 hover:bg-white/8 transition-all duration-200">
-                    <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-xl flex items-center justify-center mb-4"><i data-lucide="monitor" class="w-6 h-6 text-white"></i></div>
-                    <h3 class="font-bold text-lg mb-2">Website Design & Dev</h3>
-                    <p class="text-blue-200/70 text-sm">Modern, responsive websites tailored to your brand and business goals.</p>
-                </div>
-                <div class="scroll-reveal bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-white/25 hover:bg-white/8 transition-all duration-200">
-                    <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-purple-500 rounded-xl flex items-center justify-center mb-4"><i data-lucide="palette" class="w-6 h-6 text-white"></i></div>
-                    <h3 class="font-bold text-lg mb-2">Logo & Branding</h3>
-                    <p class="text-blue-200/70 text-sm">Professional logos, brand guidelines, and complete brand kits.</p>
-                </div>
-                <div class="scroll-reveal bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-white/25 hover:bg-white/8 transition-all duration-200">
-                    <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl flex items-center justify-center mb-4"><i data-lucide="megaphone" class="w-6 h-6 text-white"></i></div>
-                    <h3 class="font-bold text-lg mb-2">Digital Marketing</h3>
-                    <p class="text-blue-200/70 text-sm">SEO, social media, paid ads, content strategy & growth campaigns.</p>
-                </div>
-                <div class="scroll-reveal bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-white/25 hover:bg-white/8 transition-all duration-200">
-                    <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-red-500 rounded-xl flex items-center justify-center mb-4"><i data-lucide="book-open" class="w-6 h-6 text-white"></i></div>
-                    <h3 class="font-bold text-lg mb-2">ISBN & Publishing</h3>
-                    <p class="text-blue-200/70 text-sm">ISBN registration, cover design, editing, and book distribution.</p>
-                </div>
-                <div class="scroll-reveal bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-white/25 hover:bg-white/8 transition-all duration-200">
-                    <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-xl flex items-center justify-center mb-4"><i data-lucide="shield-check" class="w-6 h-6 text-white"></i></div>
-                    <h3 class="font-bold text-lg mb-2">Trademark & Copyright</h3>
-                    <p class="text-blue-200/70 text-sm">IP protection, trademark filing & copyright registration.</p>
-                </div>
+    <!-- 2. STARTIX -->
+    <section id="startix" class="py-10 md:py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center gap-3 mb-6"><span class="w-10 h-10 bg-amber-500 text-white rounded-lg flex items-center justify-center"><i data-lucide="rocket" class="w-5 h-5"></i></span><h2 class="text-2xl font-extrabold text-slate-900">JVS Startix</h2></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="p-5 rounded-xl border border-slate-100 hover:shadow-lg transition-all"><div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center mb-3"><i data-lucide="building-2" class="w-5 h-5 text-amber-600"></i></div><h3 class="font-bold text-sm text-slate-900 mb-1">Business Registrations</h3><p class="text-slate-400 text-xs mb-2">Complete support for all business types.</p><div class="flex flex-wrap gap-1"><span class="text-[9px] bg-slate-100 px-1.5 py-0.5 rounded font-bold text-slate-500">Proprietor</span><span class="text-[9px] bg-slate-100 px-1.5 py-0.5 rounded font-bold text-slate-500">LLP</span><span class="text-[9px] bg-slate-100 px-1.5 py-0.5 rounded font-bold text-slate-500">OPC</span><span class="text-[9px] bg-slate-100 px-1.5 py-0.5 rounded font-bold text-slate-500">Pvt Ltd</span><span class="text-[9px] bg-slate-100 px-1.5 py-0.5 rounded font-bold text-slate-500">MSME</span><span class="text-[9px] bg-slate-100 px-1.5 py-0.5 rounded font-bold text-slate-500">GST</span></div></div>
+                <div class="p-5 rounded-xl border border-slate-100 hover:shadow-lg transition-all"><div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-3"><i data-lucide="monitor" class="w-5 h-5 text-blue-600"></i></div><h3 class="font-bold text-sm text-slate-900 mb-1">Website Design & Dev</h3><p class="text-slate-400 text-xs">Modern, responsive websites for your brand.</p></div>
+                <div class="p-5 rounded-xl border border-slate-100 hover:shadow-lg transition-all"><div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mb-3"><i data-lucide="palette" class="w-5 h-5 text-purple-600"></i></div><h3 class="font-bold text-sm text-slate-900 mb-1">Logo & Branding</h3><p class="text-slate-400 text-xs">Professional logos, brand guidelines & kits.</p></div>
+                <div class="p-5 rounded-xl border border-slate-100 hover:shadow-lg transition-all"><div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-3"><i data-lucide="megaphone" class="w-5 h-5 text-green-600"></i></div><h3 class="font-bold text-sm text-slate-900 mb-1">Digital Marketing</h3><p class="text-slate-400 text-xs">SEO, social media, ads & growth strategy.</p></div>
+                <div class="p-5 rounded-xl border border-slate-100 hover:shadow-lg transition-all"><div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center mb-3"><i data-lucide="book-open" class="w-5 h-5 text-red-600"></i></div><h3 class="font-bold text-sm text-slate-900 mb-1">ISBN & Publishing</h3><p class="text-slate-400 text-xs">ISBN registration, cover design & distribution.</p></div>
+                <div class="p-5 rounded-xl border border-slate-100 hover:shadow-lg transition-all"><div class="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center mb-3"><i data-lucide="shield-check" class="w-5 h-5 text-cyan-600"></i></div><h3 class="font-bold text-sm text-slate-900 mb-1">Trademark & Copyright</h3><p class="text-slate-400 text-xs">IP protection, filing & legal docs.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- ========== 3. SPARKIX — Celebrations & Events ========== -->
-    <section id="sparkix" class="py-10 md:py-20 bg-gradient-to-br from-pink-50 via-white to-purple-50 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-56 h-56 bg-pink-200/30 rounded-full blur-[80px] -mr-28 -mt-28"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-10 scroll-reveal">
-                <span class="inline-block px-4 py-1.5 bg-pink-100 text-pink-600 text-sm font-semibold rounded-full mb-3 border border-pink-200">🎉 JVS Sparkix</span>
-                <h2 class="text-2xl md:text-4xl font-extrabold text-primary mb-3">Celebrations & Event Services</h2>
-                <p class="text-slate-500 max-w-2xl mx-auto text-sm">Making every moment unforgettable — from intimate surprises to grand celebrations.</p>
+    <!-- 3. SPARKIX -->
+    <section id="sparkix" class="py-10 md:py-16 bg-gradient-to-b from-pink-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center gap-3 mb-2"><span class="w-10 h-10 bg-pink-500 text-white rounded-lg flex items-center justify-center"><i data-lucide="party-popper" class="w-5 h-5"></i></span><h2 class="text-2xl font-extrabold text-slate-900">JVS Sparkix</h2></div>
+            <p class="text-slate-400 text-sm mb-6 ml-[52px]">Making every moment unforgettable.</p>
+            <!-- Feature image -->
+            <div class="rounded-2xl overflow-hidden mb-8 h-48 md:h-64">
+                <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1200&q=60" alt="Celebrations" class="w-full h-full object-cover" loading="lazy">
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                <div class="scroll-reveal group p-6 bg-white rounded-2xl border border-pink-100 hover:border-pink-300 hover:shadow-lg transition-all duration-200">
-                    <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-rose-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><i data-lucide="party-popper" class="w-6 h-6 text-white"></i></div>
-                    <h3 class="font-bold text-lg text-primary mb-2">Surprise Parties</h3>
-                    <p class="text-slate-500 text-sm">We plan and execute surprise birthday parties, anniversaries, and milestone celebrations with creative themes and seamless coordination.</p>
-                </div>
-                <div class="scroll-reveal group p-6 bg-white rounded-2xl border border-pink-100 hover:border-pink-300 hover:shadow-lg transition-all duration-200">
-                    <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><i data-lucide="camera" class="w-6 h-6 text-white"></i></div>
-                    <h3 class="font-bold text-lg text-primary mb-2">Photo & Video Shoots</h3>
-                    <p class="text-slate-500 text-sm">Professional photography and videography for birthdays, pre-weddings, baby showers, graduations, and brand shoots.</p>
-                </div>
-                <div class="scroll-reveal group p-6 bg-white rounded-2xl border border-pink-100 hover:border-pink-300 hover:shadow-lg transition-all duration-200">
-                    <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><i data-lucide="gift" class="w-6 h-6 text-white"></i></div>
-                    <h3 class="font-bold text-lg text-primary mb-2">Unique Gifting</h3>
-                    <p class="text-slate-500 text-sm">Customized and curated gift hampers, personalized keepsakes, and unique gifting solutions for every occasion and budget.</p>
-                </div>
-                <div class="scroll-reveal group p-6 bg-white rounded-2xl border border-pink-100 hover:border-pink-300 hover:shadow-lg transition-all duration-200">
-                    <div class="w-12 h-12 bg-gradient-to-br from-teal-400 to-cyan-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><i data-lucide="calendar-heart" class="w-6 h-6 text-white"></i></div>
-                    <h3 class="font-bold text-lg text-primary mb-2">Event Planning</h3>
-                    <p class="text-slate-500 text-sm">Full-service event coordination — venue selection, décor, catering coordination, entertainment, and end-to-end management for any celebration.</p>
-                </div>
-                <div class="scroll-reveal group p-6 bg-white rounded-2xl border border-pink-100 hover:border-pink-300 hover:shadow-lg transition-all duration-200">
-                    <div class="w-12 h-12 bg-gradient-to-br from-red-400 to-pink-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><i data-lucide="heart" class="w-6 h-6 text-white"></i></div>
-                    <h3 class="font-bold text-lg text-primary mb-2">Themed Celebrations</h3>
-                    <p class="text-slate-500 text-sm">Custom-themed parties for kids, adults, and corporates — from retro vibes to Bollywood nights, we bring your vision to life.</p>
-                </div>
-                <div class="scroll-reveal group p-6 bg-white rounded-2xl border border-pink-100 hover:border-pink-300 hover:shadow-lg transition-all duration-200">
-                    <div class="w-12 h-12 bg-gradient-to-br from-violet-400 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><i data-lucide="sparkles" class="w-6 h-6 text-white"></i></div>
-                    <h3 class="font-bold text-lg text-primary mb-2">Décor & Setup</h3>
-                    <p class="text-slate-500 text-sm">Stunning balloon arches, floral setups, LED marquee letters, stage decoration, and Instagram-worthy backdrops for any event.</p>
-                </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="p-5 bg-white rounded-xl border border-pink-100 hover:shadow-lg transition-all"><div class="w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center mb-3"><i data-lucide="party-popper" class="w-5 h-5 text-pink-600"></i></div><h3 class="font-bold text-sm text-slate-900 mb-1">Surprise Parties</h3><p class="text-slate-500 text-xs">Creative themes, seamless coordination for birthdays, anniversaries & milestones.</p></div>
+                <div class="p-5 bg-white rounded-xl border border-pink-100 hover:shadow-lg transition-all"><div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mb-3"><i data-lucide="camera" class="w-5 h-5 text-purple-600"></i></div><h3 class="font-bold text-sm text-slate-900 mb-1">Photo & Video Shoots</h3><p class="text-slate-500 text-xs">Professional photography for birthdays, pre-weddings, baby showers & graduations.</p></div>
+                <div class="p-5 bg-white rounded-xl border border-pink-100 hover:shadow-lg transition-all"><div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center mb-3"><i data-lucide="gift" class="w-5 h-5 text-amber-600"></i></div><h3 class="font-bold text-sm text-slate-900 mb-1">Unique Gifting</h3><p class="text-slate-500 text-xs">Curated hampers, personalized keepsakes & custom gifting for every occasion.</p></div>
+                <div class="p-5 bg-white rounded-xl border border-pink-100 hover:shadow-lg transition-all"><div class="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center mb-3"><i data-lucide="calendar-heart" class="w-5 h-5 text-teal-600"></i></div><h3 class="font-bold text-sm text-slate-900 mb-1">Event Planning</h3><p class="text-slate-500 text-xs">Full-service coordination — venue, décor, catering, entertainment & management.</p></div>
+                <div class="p-5 bg-white rounded-xl border border-pink-100 hover:shadow-lg transition-all"><div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center mb-3"><i data-lucide="heart" class="w-5 h-5 text-red-500"></i></div><h3 class="font-bold text-sm text-slate-900 mb-1">Themed Celebrations</h3><p class="text-slate-500 text-xs">Custom themes for kids, adults & corporates — retro, Bollywood, minimal & more.</p></div>
+                <div class="p-5 bg-white rounded-xl border border-pink-100 hover:shadow-lg transition-all"><div class="w-10 h-10 bg-violet-100 rounded-lg flex items-center justify-center mb-3"><i data-lucide="sparkles" class="w-5 h-5 text-violet-600"></i></div><h3 class="font-bold text-sm text-slate-900 mb-1">Décor & Setup</h3><p class="text-slate-500 text-xs">Balloon arches, floral setups, LED letters, stage decoration & Insta-worthy backdrops.</p></div>
             </div>
-            <div class="mt-8 text-center"><a href="contact.html" class="inline-flex items-center gap-2 bg-pink-500 text-white px-7 py-3 rounded-xl font-semibold hover:bg-pink-600 transition-all shadow-lg text-sm">Plan Your Celebration <i data-lucide="arrow-right" class="w-4 h-4"></i></a></div>
+            <div class="mt-6 text-center"><a href="contact.html" class="bg-pink-500 text-white px-6 py-2.5 rounded-xl text-sm font-semibold hover:bg-pink-600 transition-colors inline-flex items-center gap-1.5">Plan Your Celebration <i data-lucide="arrow-right" class="w-4 h-4"></i></a></div>
         </div>
     </section>
 
-    <!-- ========== 4. GROWIX — Placements & Career ========== -->
-    <section id="growix" class="py-10 md:py-20 bg-gradient-to-br from-emerald-50 via-white to-green-50 relative overflow-hidden">
-        <div class="absolute bottom-0 left-0 w-56 h-56 bg-emerald-200/30 rounded-full blur-[80px] -ml-28 -mb-28"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-10 scroll-reveal">
-                <span class="inline-block px-4 py-1.5 bg-emerald-100 text-emerald-700 text-sm font-semibold rounded-full mb-3 border border-emerald-200">📈 JVS Growix</span>
-                <h2 class="text-2xl md:text-4xl font-extrabold text-primary mb-3">Placement & Career Growth</h2>
-                <p class="text-slate-500 max-w-2xl mx-auto text-sm">Your career accelerator — from resume to your first (or next) job offer.</p>
+    <!-- 4. GROWIX -->
+    <section id="growix" class="py-10 md:py-16 bg-gradient-to-b from-emerald-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center gap-3 mb-2"><span class="w-10 h-10 bg-emerald-600 text-white rounded-lg flex items-center justify-center"><i data-lucide="trending-up" class="w-5 h-5"></i></span><h2 class="text-2xl font-extrabold text-slate-900">JVS Growix</h2></div>
+            <p class="text-slate-400 text-sm mb-6 ml-[52px]">Your career accelerator — from resume to job offer.</p>
+            <div class="rounded-2xl overflow-hidden mb-8 h-48 md:h-64">
+                <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=60" alt="Career Growth" class="w-full h-full object-cover" loading="lazy">
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                <div class="scroll-reveal group p-6 bg-white rounded-2xl border border-emerald-100 hover:border-emerald-300 hover:shadow-lg transition-all duration-200">
-                    <div class="w-12 h-12 bg-gradient-to-br from-emerald-400 to-green-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><i data-lucide="briefcase" class="w-6 h-6 text-white"></i></div>
-                    <h3 class="font-bold text-lg text-primary mb-2">Placement Support</h3>
-                    <p class="text-slate-500 text-sm">Dedicated placement assistance for freshers and experienced candidates in IT and Non-IT roles. We connect you with our network of 50+ partner companies.</p>
-                </div>
-                <div class="scroll-reveal group p-6 bg-white rounded-2xl border border-emerald-100 hover:border-emerald-300 hover:shadow-lg transition-all duration-200">
-                    <div class="w-12 h-12 bg-gradient-to-br from-teal-400 to-cyan-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><i data-lucide="compass" class="w-6 h-6 text-white"></i></div>
-                    <h3 class="font-bold text-lg text-primary mb-2">Career Counseling</h3>
-                    <p class="text-slate-500 text-sm">One-on-one career guidance sessions to help you identify the right career path, set goals, and create an actionable plan for professional success.</p>
-                </div>
-                <div class="scroll-reveal group p-6 bg-white rounded-2xl border border-emerald-100 hover:border-emerald-300 hover:shadow-lg transition-all duration-200">
-                    <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><i data-lucide="file-check" class="w-6 h-6 text-white"></i></div>
-                    <h3 class="font-bold text-lg text-primary mb-2">Resume Building</h3>
-                    <p class="text-slate-500 text-sm">Professional resume writing services with ATS-friendly formatting, impactful content, and keyword optimization to get you shortlisted faster.</p>
-                </div>
-                <div class="scroll-reveal group p-6 bg-white rounded-2xl border border-emerald-100 hover:border-emerald-300 hover:shadow-lg transition-all duration-200">
-                    <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><i data-lucide="mic" class="w-6 h-6 text-white"></i></div>
-                    <h3 class="font-bold text-lg text-primary mb-2">Mock Interviews</h3>
-                    <p class="text-slate-500 text-sm">Realistic interview simulations with industry professionals covering HR, technical, and behavioral rounds with personalized feedback.</p>
-                </div>
-                <div class="scroll-reveal group p-6 bg-white rounded-2xl border border-emerald-100 hover:border-emerald-300 hover:shadow-lg transition-all duration-200">
-                    <div class="w-12 h-12 bg-gradient-to-br from-violet-400 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><i data-lucide="linkedin" class="w-6 h-6 text-white"></i></div>
-                    <h3 class="font-bold text-lg text-primary mb-2">LinkedIn & Profile Optimization</h3>
-                    <p class="text-slate-500 text-sm">Stand out to recruiters with a professionally optimized LinkedIn profile, portfolio setup, and personal branding strategy.</p>
-                </div>
-                <div class="scroll-reveal group p-6 bg-white rounded-2xl border border-emerald-100 hover:border-emerald-300 hover:shadow-lg transition-all duration-200">
-                    <div class="w-12 h-12 bg-gradient-to-br from-rose-400 to-red-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><i data-lucide="laptop" class="w-6 h-6 text-white"></i></div>
-                    <h3 class="font-bold text-lg text-primary mb-2">Internships</h3>
-                    <p class="text-slate-500 text-sm">Gain real-world experience through our internship programs. Work on live projects and build a portfolio that makes recruiters notice you.</p>
-                </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="p-5 bg-white rounded-xl border border-emerald-100 hover:shadow-lg transition-all"><div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center mb-3"><i data-lucide="briefcase" class="w-5 h-5 text-emerald-600"></i></div><h3 class="font-bold text-sm text-slate-900 mb-1">Placement Support</h3><p class="text-slate-500 text-xs">Dedicated support for freshers & experienced. 50+ partner companies in IT & Non-IT.</p></div>
+                <div class="p-5 bg-white rounded-xl border border-emerald-100 hover:shadow-lg transition-all"><div class="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center mb-3"><i data-lucide="compass" class="w-5 h-5 text-teal-600"></i></div><h3 class="font-bold text-sm text-slate-900 mb-1">Career Counseling</h3><p class="text-slate-500 text-xs">1-on-1 guidance to identify the right path, set goals & create actionable career plans.</p></div>
+                <div class="p-5 bg-white rounded-xl border border-emerald-100 hover:shadow-lg transition-all"><div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-3"><i data-lucide="file-check" class="w-5 h-5 text-blue-600"></i></div><h3 class="font-bold text-sm text-slate-900 mb-1">Resume Building</h3><p class="text-slate-500 text-xs">ATS-friendly, keyword-optimized resumes to get you shortlisted faster.</p></div>
+                <div class="p-5 bg-white rounded-xl border border-emerald-100 hover:shadow-lg transition-all"><div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center mb-3"><i data-lucide="mic" class="w-5 h-5 text-amber-600"></i></div><h3 class="font-bold text-sm text-slate-900 mb-1">Mock Interviews</h3><p class="text-slate-500 text-xs">HR, technical & behavioral rounds with personalized feedback from industry pros.</p></div>
+                <div class="p-5 bg-white rounded-xl border border-emerald-100 hover:shadow-lg transition-all"><div class="w-10 h-10 bg-violet-100 rounded-lg flex items-center justify-center mb-3"><i data-lucide="linkedin" class="w-5 h-5 text-violet-600"></i></div><h3 class="font-bold text-sm text-slate-900 mb-1">LinkedIn Optimization</h3><p class="text-slate-500 text-xs">Stand out to recruiters with a professionally optimized profile & personal brand.</p></div>
+                <div class="p-5 bg-white rounded-xl border border-emerald-100 hover:shadow-lg transition-all"><div class="w-10 h-10 bg-rose-100 rounded-lg flex items-center justify-center mb-3"><i data-lucide="laptop" class="w-5 h-5 text-rose-600"></i></div><h3 class="font-bold text-sm text-slate-900 mb-1">Internships</h3><p class="text-slate-500 text-xs">Real-world experience on live projects. Build a portfolio that recruiters notice.</p></div>
             </div>
-            <div class="mt-8 text-center"><a href="contact.html" class="inline-flex items-center gap-2 bg-emerald-600 text-white px-7 py-3 rounded-xl font-semibold hover:bg-emerald-700 transition-all shadow-lg text-sm">Start Your Career Journey <i data-lucide="arrow-right" class="w-4 h-4"></i></a></div>
+            <div class="mt-6 text-center"><a href="contact.html" class="bg-emerald-600 text-white px-6 py-2.5 rounded-xl text-sm font-semibold hover:bg-emerald-700 transition-colors inline-flex items-center gap-1.5">Start Your Career <i data-lucide="arrow-right" class="w-4 h-4"></i></a></div>
         </div>
     </section>
 
     <!-- WhatsApp -->
-    <a href="#" target="_blank" class="floating-whatsapp conf-whatsapp-link" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.396.015 12.03c0 2.12.553 4.189 1.606 6.06L0 24l6.117-1.605a11.803 11.803 0 005.925 1.577h.005c6.632 0 12.028-5.398 12.03-12.03a11.85 11.85 0 00-3.486-8.507z"/></svg></a>
+    <a href="#" target="_blank" class="floating-whatsapp conf-whatsapp-link" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.396.015 12.03c0 2.12.553 4.189 1.606 6.06L0 24l6.117-1.605a11.803 11.803 0 005.925 1.577h.005c6.632 0 12.028-5.398 12.03-12.03a11.85 11.85 0 00-3.486-8.507z"/></svg></a>
 
     <!-- Footer -->
-    <footer class="bg-primary text-white pt-14 pb-8">
+    <footer class="bg-slate-900 text-white pt-12 pb-6">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
-                <div class="col-span-1 md:col-span-2">
-                    <img src="assets/images/logo.png" alt="JVS Academy" class="h-12 w-auto mb-4" loading="lazy">
-                    <p class="text-blue-200/70 max-w-md text-sm leading-relaxed">Versatile Stability Academy — powering careers, businesses, and celebrations across India through Learnix, Startix, Sparkix & Growix.</p>
-                    <div class="mt-5 flex flex-wrap gap-2">
-                        <a href="https://www.instagram.com/jvsacademyofficial/" target="_blank" class="inline-flex items-center space-x-1.5 bg-white/8 px-3 py-1.5 rounded-lg hover:bg-light/20 transition-colors text-xs"><i data-lucide="instagram" class="w-3.5 h-3.5"></i><span class="font-semibold">jvsacademyofficial</span></a>
-                        <a href="https://www.instagram.com/jvs_learnix/" target="_blank" class="inline-flex items-center space-x-1.5 bg-white/8 px-3 py-1.5 rounded-lg hover:bg-light/20 transition-colors text-xs"><i data-lucide="instagram" class="w-3.5 h-3.5"></i><span class="font-semibold">jvs_learnix</span></a>
-                        <a href="https://www.instagram.com/startixofficial/" target="_blank" class="inline-flex items-center space-x-1.5 bg-white/8 px-3 py-1.5 rounded-lg hover:bg-light/20 transition-colors text-xs"><i data-lucide="instagram" class="w-3.5 h-3.5"></i><span class="font-semibold">startixofficial</span></a>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <img src="assets/images/logo.png" alt="JVS Academy" class="h-10 mb-3" loading="lazy">
+                    <p class="text-slate-400 text-xs max-w-sm leading-relaxed">Versatile Stability Academy — powering careers, businesses & celebrations across India.</p>
+                    <div class="mt-4 flex flex-wrap gap-1.5">
+                        <a href="https://www.instagram.com/jvsacademyofficial/" target="_blank" class="bg-white/5 px-2.5 py-1 rounded text-[10px] font-semibold hover:bg-white/10"><i data-lucide="instagram" class="w-3 h-3 inline mr-1"></i>jvsacademyofficial</a>
+                        <a href="https://www.instagram.com/jvs_learnix/" target="_blank" class="bg-white/5 px-2.5 py-1 rounded text-[10px] font-semibold hover:bg-white/10"><i data-lucide="instagram" class="w-3 h-3 inline mr-1"></i>jvs_learnix</a>
+                        <a href="https://www.instagram.com/startixofficial/" target="_blank" class="bg-white/5 px-2.5 py-1 rounded text-[10px] font-semibold hover:bg-white/10"><i data-lucide="instagram" class="w-3 h-3 inline mr-1"></i>startixofficial</a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-sm font-bold mb-4 border-b border-white/10 pb-2 inline-block">Quick Links</h4>
-                    <ul class="space-y-2.5 text-blue-200/60 text-sm">
-                        <li><a href="index.html" class="hover:text-light transition-colors">Home</a></li>
-                        <li><a href="services.html" class="hover:text-light transition-colors">Services</a></li>
-                        <li><a href="contact.html" class="hover:text-light transition-colors">Contact</a></li>
-                    </ul>
+                    <h4 class="text-xs font-bold mb-3 text-slate-300">Links</h4>
+                    <ul class="space-y-1.5 text-slate-500 text-xs"><li><a href="index.html" class="hover:text-indigo-400">Home</a></li><li><a href="services.html" class="hover:text-indigo-400">Services</a></li><li><a href="contact.html" class="hover:text-indigo-400">Contact</a></li></ul>
                 </div>
                 <div>
-                    <h4 class="text-sm font-bold mb-4 border-b border-white/10 pb-2 inline-block">Contact Info</h4>
-                    <ul class="space-y-2.5 text-blue-200/60 text-sm">
-                        <li class="flex items-start space-x-2"><i data-lucide="map-pin" class="w-4 h-4 text-light shrink-0 mt-0.5"></i><span class="conf-address"></span></li>
-                        <li class="flex items-center space-x-2"><i data-lucide="phone" class="w-4 h-4 text-light"></i><span class="conf-phone"></span></li>
-                        <li class="flex items-center space-x-2"><i data-lucide="mail" class="w-4 h-4 text-light"></i><span class="conf-email"></span></li>
+                    <h4 class="text-xs font-bold mb-3 text-slate-300">Contact</h4>
+                    <ul class="space-y-1.5 text-slate-500 text-xs">
+                        <li class="flex items-start gap-1.5"><i data-lucide="map-pin" class="w-3 h-3 text-indigo-400 shrink-0 mt-0.5"></i><span class="conf-address"></span></li>
+                        <li class="flex items-center gap-1.5"><i data-lucide="phone" class="w-3 h-3 text-indigo-400"></i><span class="conf-phone"></span></li>
+                        <li class="flex items-center gap-1.5"><i data-lucide="mail" class="w-3 h-3 text-indigo-400"></i><span class="conf-email"></span></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-white/10 pt-6 text-center text-blue-200/40 text-xs">
+            <div class="border-t border-white/5 pt-4 text-center text-slate-600 text-[10px]">
                 <div class="conf-company-copyright"></div>
-                <div class="mt-2 flex justify-center space-x-5"><a href="terms.html" class="hover:text-white font-semibold uppercase tracking-wider">Terms</a><a href="policy.html" class="hover:text-white font-semibold uppercase tracking-wider">Privacy</a></div>
-                <div class="mt-2 font-semibold uppercase tracking-wider text-blue-200/30">Made with <span class="text-red-400">❤️</span> by JVS Startix</div>
+                <div class="mt-1 space-x-3"><a href="terms.html" class="hover:text-white">Terms</a><a href="policy.html" class="hover:text-white">Privacy</a></div>
             </div>
         </div>
     </footer>
 
     <!-- Service Modal -->
     <div id="service-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
-        <div class="absolute inset-0 bg-primary/70 backdrop-blur-sm" onclick="closeServiceModal()"></div>
-        <div class="relative bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden animate-fade-in-up">
-            <div class="p-7 md:p-10">
-                <div class="flex justify-between items-center mb-5">
-                    <h3 id="modal-service-name" class="text-xl font-extrabold text-primary"></h3>
-                    <button onclick="closeServiceModal()" class="p-1.5 hover:bg-slate-100 rounded-full"><i data-lucide="x" class="w-5 h-5 text-slate-400"></i></button>
-                </div>
-                <div class="bg-blue-50 p-5 rounded-xl border-l-4 border-accent mb-5">
-                    <p id="modal-service-benefit" class="text-slate-600 font-medium text-sm leading-relaxed"></p>
-                </div>
-                <div class="flex items-center justify-between bg-soft p-5 rounded-xl border border-slate-100">
-                    <div>
-                        <p class="text-slate-400 text-xs uppercase font-bold tracking-widest mb-1">Course Fee</p>
-                        <p id="modal-service-price" class="text-2xl font-extrabold text-primary"></p>
-                    </div>
-                    <div class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Limited Offer</div>
-                </div>
-                <div class="mt-6 flex justify-end"><a href="contact.html" class="btn-primary py-2 px-5 text-sm">Enroll Now</a></div>
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeServiceModal()"></div>
+        <div class="relative bg-white w-full max-w-md rounded-2xl shadow-2xl overflow-hidden animate-fade-up">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4"><h3 id="modal-service-name" class="text-lg font-extrabold text-slate-900"></h3><button onclick="closeServiceModal()" class="p-1 hover:bg-slate-100 rounded-full"><i data-lucide="x" class="w-5 h-5 text-slate-400"></i></button></div>
+                <div class="bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-500 mb-4"><p id="modal-service-benefit" class="text-slate-600 text-sm"></p></div>
+                <div class="flex items-center justify-between bg-slate-50 p-4 rounded-lg"><div><p class="text-slate-400 text-[10px] uppercase font-bold tracking-widest mb-0.5">Fee</p><p id="modal-service-price" class="text-xl font-extrabold text-slate-900"></p></div><span class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-[10px] font-bold">Limited Offer</span></div>
+                <div class="mt-4 text-right"><a href="contact.html" class="btn-primary py-2 px-4 text-xs">Enroll Now</a></div>
             </div>
         </div>
     </div>

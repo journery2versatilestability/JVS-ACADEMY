@@ -108,7 +108,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     lucide.createIcons();
     document.querySelectorAll('.scroll-reveal').forEach(el => {
         el.style.opacity = '0';
-        el.style.willChange = 'opacity, transform';
         observer.observe(el);
     });
 
@@ -189,7 +188,7 @@ const renderCourses = () => {
     const keys = Object.keys(serviceBenefits);
 
     const html = keys.map(key => `
-        <button onclick="openServiceModal('${key}')" class="p-4 bg-white/10 rounded-xl border border-white/10 font-bold text-white text-sm hover:border-white/30 hover:bg-white/15 transition-all">
+        <button onclick="openServiceModal('${key}')" class="p-3 bg-white/5 rounded-lg border border-white/10 font-semibold text-white text-xs hover:bg-white/10 hover:border-white/20 transition-colors">
             ${serviceBenefits[key].name}
         </button>
     `).join('');
@@ -235,9 +234,10 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('animate-fade-up');
             entry.target.style.opacity = '1';
+            observer.unobserve(entry.target);
         }
     });
-}, { threshold: 0.1 });
+}, { threshold: 0.05 });
 
 // Navbar scroll effect
 window.addEventListener('scroll', () => {
