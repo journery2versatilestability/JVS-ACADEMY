@@ -189,7 +189,7 @@ const renderCourses = () => {
     const keys = Object.keys(serviceBenefits);
 
     const html = keys.map(key => `
-        <button onclick="openServiceModal('${key}')" class="p-5 bg-white rounded-2xl border-2 border-slate-100 font-black text-primary hover:border-accent hover:shadow-xl transition-all">
+        <button onclick="openServiceModal('${key}')" class="p-4 bg-white/10 rounded-xl border border-white/10 font-bold text-white text-sm hover:border-white/30 hover:bg-white/15 transition-all">
             ${serviceBenefits[key].name}
         </button>
     `).join('');
